@@ -1,0 +1,112 @@
+%% Thesis Template of GZ.Univ
+%%   for using revised CASthesis package with LaTeX2e
+%%
+%% Created by snda.liu <thinksheng@foxmail.com>
+%%
+%% $Id: 论文盲评.tex,v 0.12 2015/12/06 19:35:46   $
+
+%%%请使用pdflatex或pdftexify编译
+%%%上述两种编译器，可以识别的图片格式有：PDF,JPG,JPEG,PNG
+
+
+
+
+
+\documentclass[pdftex,notypeinfo,oneside]{CASthesis}
+
+
+
+\graphicspath{{chapter/}{figures/}} % 设置图形文件的搜索路径
+
+\CTEXsetup[format+={\flushleft}]{section} % 小节标题靠左对齐
+
+\allowdisplaybreaks[4] %公式强制分页
+
+%\renewcommand{\baselinestretch}{1.5} %行间距，默认为1.3
+\usepackage{setspace}
+
+\usepackage{geometry}%设置页边距
+\geometry{left=2.54cm,right=2.54cm,top=3.17cm,bottom=3.17cm}
+
+\setcounter{tocdepth}{2}%设定目录层级（通常取值0-2之间）
+
+
+\begin{document}
+
+\oddyemei{\leftmark}
+\evenyemei{贵州大学硕士学位论文}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 封面部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  \titlepage
+\newpage\thispagestyle{empty}
+
+ \begin{flushleft}
+  \setlength{\fboxrule}{1pt}
+  \setlength{\fboxsep}{0.1cm}
+  \fbox{\shortstack[l]{\vspace*{15pt}\\\songti\zihao{5}论文编号：\underline{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}\\\vspace*{15pt}}}
+ \end{flushleft}
+
+\vspace*{30pt}
+\begin{center}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=2.9cm]{gzdx_red.jpg}\\
+  \includegraphics[width=3.9cm]{gzdx_mao.jpg}\\
+\end{figure}
+  \kaishu\zihao{-0}{\textbf{2017届硕士学位论文}}
+\end{center}
+
+\vspace*{20pt}
+\begin{center}
+  \heiti\zihao{1}{论文题目}
+\end{center}
+
+\vspace*{20pt}
+\begin{center}
+  \heiti\zihao{3}{
+  学科专业：\uwave{\hbox to 52mm{~~~~~~~~~~~~应用数学~~~~~~~~~~~~}}\\
+  研究方向：\uwave{\hbox to 52mm{~~~~~~~~微分方程及应用~~~~~~~~}}
+  }
+\end{center}
+
+\vspace*{70pt}
+
+\begin{center}
+  \heiti\zihao{4}
+     {中国$\cdot$贵州$\cdot$贵阳\\2017年~5月}
+\end{center}
+
+  \frontmatter%前序页码i ii iii iv
+  % 目录
+  \tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 前言部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+%请将论文正式版本的“前言部分”——————“致谢”之前  的tex代码全部复制于此处。
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 致谢%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%致谢及致谢之后的部分不需要复制
+
+
+
+
+
+
+
+
+\end{document}

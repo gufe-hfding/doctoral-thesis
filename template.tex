@@ -1,0 +1,196 @@
+%% Thesis Template of GZ.Univ
+%%   for using revised CASthesis package with LaTeX2e
+%%
+%% Created by snda.liu <thinksheng@foxmail.com>
+%%
+%% $Id: template.tex,v 0.33 2017/07/14 16:23:46   $
+
+%%%请使用pdflatex或pdftexify编译
+
+
+
+
+
+
+\documentclass[pdftex,notypeinfo,twoside,openany]{CASthesis}
+%oneside单面打印，twoside双面打印；支持环保，选择双面打印!
+%twoside,openany只是表示pdf按照双面打印准备，当你去复印社时，依然需要跟老板说明：“你需要双面打印”。
+
+\graphicspath{{chapter/}{figures/}} % 设置图形文件的搜索路径
+
+\CTEXsetup[format+={\flushleft}]{section} % 小节标题靠左对齐
+
+\allowdisplaybreaks[4] %公式强制分页
+
+\renewcommand{\baselinestretch}{1.5} %行间距，默认为1.3
+\usepackage{setspace}
+
+\usepackage{geometry} %设置页边距
+\geometry{left=2.54cm,right=2.54cm,top=3.17cm,bottom=3.17cm}
+
+\setcounter{tocdepth}{2}%设定目录层级（通常取值0-2之间）
+
+
+
+
+\begin{document}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 封面部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+  % 中文封面内容
+  \classification{TP309,TN918}%分类号
+  \confidential{}%密级
+  \serialnumber{2015010008}%论文编号
+  \school{贵\ \ 州\ \ 大\ \ 学}
+  \degree{2019届博士}
+  \title{理性隐私保护模型及应用}
+  \author{丁红发}
+  \advisor{向淑文、彭长根}
+  \xuekezhuanye{应用数学}
+  \yanjiufangxiang{密码学与数据安全}
+  \riqi{2019年~9月}
+  \didian{中国$\cdot$贵州$\cdot$贵阳}
+%  请适当替换上述文字
+
+
+ \oddyemei{\leftmark}
+ \evenyemei{贵州大学博士学位论文}
+
+
+  % 封面
+  \maketitle
+  \frontmatter%前序页码i ii iii iv
+  % 目录
+  \tableofcontents
+  % 表格目录
+ % \listoftables
+  % 插图目录
+ % \listoffigures
+ \cleardoublepage
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 前言部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 摘要
+\begin{abstract}
+TBC
+
+\keywords{隐私保护，博弈论，隐私量化，隐私推测，基于风险访问控制}
+\end{abstract}
+
+
+\begin{englishabstract}
+TBC
+
+\englishkeywords{Privacy preserving, Game Theory, Privacy quantification, Privacy inference, Risk adaptable based access control}
+\end{englishabstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 摘要结束
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 正文部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter%正式页码1 2 3
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 第1章
+
+
+\input{chapter1.tex}%绪论
+\input{chapter2.tex}%基础知识
+\input{chapter3.tex}%隐私量化
+\input{chapter4.tex}%隐私推测
+\input{chapter5.tex}%风险访问控制
+\input{chapter6.tex}%基于二人博弈的风险访问控制
+\input{chapter7.tex}%基于演化博弈的风险访问控制
+\input{chapter8.tex}%结论
+\input{chapter9.tex}%结论
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% 附件部分
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%参考文献%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{gbt7714-unsrt}
+\bibliography{thesis-references}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 致谢%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{thanks}
+
+致谢
+
+\end{thanks}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%攻读学位期间科研和论文情况%%%%%%%%%%%%%%%
+\newpage
+\Nchapter{攻读博士学位期间科研和论文情况}  %博士同学请注意修改此标题
+
+\begin{resumesection}{一、科研工作}
+
+\textbf{主持科研项目：}\\
+1. 贵州大学研究生创新基金：大数据环境下的风险自适应隐私保护访问控制模型及其应用研究(No.研理工2016068)
+
+\textbf{参与科研项目：}\\
+1. 国家自然科学基金重点项目：数据共享应用的块数据融合分析理论与安全管控模型研究(No. U1836205)\\
+2. 国家自然科学基金地区项目：理性隐私计算及隐私风险可控技术研究(No. 61662009)\\
+3.  国家自然科学基金面上项目：理性委托计算的可组合安全理论及其构造方法研究(No.61772008)\\
+4. 贵州省科技计划重大专项：面向多源法院数据融合的数据安全防护与隐私保护算法及模型研究(No. 黔科合重大专项字[2017]3002)\\
+5. 贵州省科技计划重大专项：大数据安全与隐私保护关键技术研究(No. 黔科合重大专项字[2018]3001)
+
+\end{resumesection}
+
+\begin{resumelist}{二、发表论文}
+
+[1] \textbf{Ding Hongfa}, Peng Changgen, Tian Youliang and Xiang Shuwen. A risk adaptive access control model based on Markov for big data in the cloud, International Journal of High Performance Computing and Networking, 2019, 13(4):464-475.(\textbf{EI})
+
+[1] 彭长根,\textbf{丁红发},朱义杰,田有亮,符祖峰.隐私保护的信息熵模型及其度量方法[J].软件学报,2016,27(08):1891-1903.(\textbf{EI, 一级学报，CCF推荐A类中文期刊})
+
+[2] 刘波涛,彭长根,吴睿雪,\textbf{丁红发},谢明明.面向数字型的轻量级保形加密算法研究[J].计算机研究与发展,2019,56(07):1488-1497.(\textbf{EI, 一级学报，CCF推荐A类中文期刊})
+ 
+[3]  彭长根,田有亮,刘海,\textbf{丁红发}.密码学与博弈论的交叉研究综述[J].密码学报,2017,4(01):1-15.(\textbf{CCF推荐C类中文期刊})
+
+[4] 谢明明,彭长根,吴睿雪,\textbf{丁红发},刘波涛.结构化数据的隐私与数据效用度量模型[J].计算机应用研究:1-6[2019-08-25].(\textbf{CCF推荐C类中文期刊})
+
+\end{resumelist}
+
+\begin{resumelist}{二、专利}
+
+[1]\textbf{丁红发},彭长根,朱义杰. 基于位置景区电子讲解服务的系统[P]. 贵州：CN205029878U, 2016-02-10.
+
+[2]\textbf{丁红发},彭长根,朱义杰. 基于位置景区电子讲解服务的系统的设计方法及系统[P]. 贵州：CN105025442A,2015-11-04.
+
+[3]刘波涛,彭长根,吴睿雪,谢明明,\textbf{丁红发},袁文书,夏宗涛,杨炳钊. 一种可恢复的保留数字类型轻量级脱敏方法[P]. 贵州：CN109039586A,2018-12-18.
+
+[4]彭长根,吴睿雪,刘波涛,\textbf{丁红发},谢明明. 具有隐私保护功能的快递实名认证方法[P]. 贵州：CN108833351A,2018-11-16.
+
+[5]谢明明,彭长根,刘波涛,吴睿雪,\textbf{丁红发}. 一种基于传统分组密码的保持格式加密方法[P]. 贵州：CN108768617A,2018-11-06.
+
+[6]彭长根,刘波涛,吴睿雪,谢明明,\textbf{丁红发},李雪松. 一种基于手机身份的验证码短信透明加密方法[P]. 贵州：CN108599944A,2018-09-28.
+
+[7]刘波涛,彭长根,吴睿雪,李雪松,\textbf{丁红发},谢明明. 加解密一致的SP网络结构轻量级LBT分组密码实现方法[P]. 贵州：CN107707343A,2018-02-16.
+
+\end{resumelist}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 声明%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\newpage
+ \pagestyle{empty}
+%\textwidth 14.5 true cm  %默认14.5
+\begin{center}
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{shengming.pdf}
+\end{figure}
+\end{center}
+
+
+\end{document}
