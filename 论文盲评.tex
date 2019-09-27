@@ -3,42 +3,43 @@
 %%
 %% Created by snda.liu <thinksheng@foxmail.com>
 %%
-%% $Id: ÂÛÎÄÃ¤ÆÀ.tex,v 0.12 2015/12/06 19:35:46   $
+%% $Id: è®ºæ–‡ç›²è¯„.tex,v 0.12 2015/12/06 19:35:46   $
 
-%%%ÇëÊ¹ÓÃpdflatex»òpdftexify±àÒë
-%%%ÉÏÊöÁ½ÖÖ±àÒëÆ÷£¬¿ÉÒÔÊ¶±ğµÄÍ¼Æ¬¸ñÊ½ÓĞ£ºPDF,JPG,JPEG,PNG
-
-
+%%%è¯·ä½¿ç”¨pdflatexæˆ–pdftexifyç¼–è¯‘
+%%%ä¸Šè¿°ä¸¤ç§ç¼–è¯‘å™¨ï¼Œå¯ä»¥è¯†åˆ«çš„å›¾ç‰‡æ ¼å¼æœ‰ï¼šPDF,JPG,JPEG,PNG
 
 
 
-\documentclass[pdftex,notypeinfo,oneside]{CASthesis}
+
+
+\documentclass[pdftex,notypeinfo,oneside,UTF8,fntef]{CASthesis}
 
 
 
-\graphicspath{{chapter/}{figures/}} % ÉèÖÃÍ¼ĞÎÎÄ¼şµÄËÑË÷Â·¾¶
+\graphicspath{{chapter/}{figures/}} % è®¾ç½®å›¾å½¢æ–‡ä»¶çš„æœç´¢è·¯å¾„
 
-\CTEXsetup[format+={\flushleft}]{section} % Ğ¡½Ú±êÌâ¿¿×ó¶ÔÆë
+\CTEXsetup[format+={\flushleft}]{section} % å°èŠ‚æ ‡é¢˜é å·¦å¯¹é½
 
-\allowdisplaybreaks[4] %¹«Ê½Ç¿ÖÆ·ÖÒ³
+\allowdisplaybreaks[4] %å…¬å¼å¼ºåˆ¶åˆ†é¡µ
 
-%\renewcommand{\baselinestretch}{1.5} %ĞĞ¼ä¾à£¬Ä¬ÈÏÎª1.3
+%\renewcommand{\baselinestretch}{1.5} %è¡Œé—´è·ï¼Œé»˜è®¤ä¸º1.3
 \usepackage{setspace}
-
-\usepackage{geometry}%ÉèÖÃÒ³±ß¾à
+\usepackage{booktabs}
+\usepackage[super]{gbt7714}
+\usepackage{geometry}%è®¾ç½®é¡µè¾¹è·
 \geometry{left=2.54cm,right=2.54cm,top=3.17cm,bottom=3.17cm}
 
-\setcounter{tocdepth}{2}%Éè¶¨Ä¿Â¼²ã¼¶£¨Í¨³£È¡Öµ0-2Ö®¼ä£©
+\setcounter{tocdepth}{2}%è®¾å®šç›®å½•å±‚çº§ï¼ˆé€šå¸¸å–å€¼0-2ä¹‹é—´ï¼‰
 
 
 \begin{document}
 
 \oddyemei{\leftmark}
-\evenyemei{¹óÖİ´óÑ§Ë¶Ê¿Ñ§Î»ÂÛÎÄ}
+\evenyemei{è´µå·å¤§å­¦åšå£«å­¦ä½è®ºæ–‡}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ·âÃæ²¿·Ö
+%% å°é¢éƒ¨åˆ†
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
   \titlepage
@@ -47,7 +48,7 @@
  \begin{flushleft}
   \setlength{\fboxrule}{1pt}
   \setlength{\fboxsep}{0.1cm}
-  \fbox{\shortstack[l]{\vspace*{15pt}\\\songti\zihao{5}ÂÛÎÄ±àºÅ£º\underline{~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~}\\\vspace*{15pt}}}
+  \fbox{\shortstack[l]{\vspace*{15pt}\\\songti\zihao{5}è®ºæ–‡ç¼–å·ï¼š\underline{~~~~~~~~~~~~2015010008~~~~~~~~~~~~~~~~~~~~}\\\vspace*{15pt}}}
  \end{flushleft}
 
 \vspace*{30pt}
@@ -57,19 +58,19 @@
   \includegraphics[width=2.9cm]{gzdx_red.jpg}\\
   \includegraphics[width=3.9cm]{gzdx_mao.jpg}\\
 \end{figure}
-  \kaishu\zihao{-0}{\textbf{2017½ìË¶Ê¿Ñ§Î»ÂÛÎÄ}}
+  \kaishu\zihao{-0}{\textbf{2019å±Šåšå£«å­¦ä½è®ºæ–‡}}
 \end{center}
 
 \vspace*{20pt}
 \begin{center}
-  \heiti\zihao{1}{ÂÛÎÄÌâÄ¿}
+  \heiti\zihao{1}{ç†æ€§éšç§ä¿æŠ¤æ¨¡å‹åŠåº”ç”¨}
 \end{center}
 
 \vspace*{20pt}
 \begin{center}
   \heiti\zihao{3}{
-  Ñ§¿Æ×¨Òµ£º\uwave{\hbox to 52mm{~~~~~~~~~~~~Ó¦ÓÃÊıÑ§~~~~~~~~~~~~}}\\
-  ÑĞ¾¿·½Ïò£º\uwave{\hbox to 52mm{~~~~~~~~Î¢·Ö·½³Ì¼°Ó¦ÓÃ~~~~~~~~}}
+  å­¦ç§‘ä¸“ä¸šï¼š\uwave{\hbox to 52mm{~~~~~~~~~~~~åº”ç”¨æ•°å­¦~~~~~~~~~~~~}}\\
+  ç ”ç©¶æ–¹å‘ï¼š\uwave{\hbox to 52mm{~~~~~~~~å¯†ç å­¦ä¸æ•°æ®å®‰å…¨~~~~~~~~}}
   }
 \end{center}
 
@@ -77,30 +78,72 @@
 
 \begin{center}
   \heiti\zihao{4}
-     {ÖĞ¹ú$\cdot$¹óÖİ$\cdot$¹óÑô\\2017Äê~5ÔÂ}
+     {ä¸­å›½$\cdot$è´µå·$\cdot$è´µé˜³\\2019å¹´~10æœˆ}
 \end{center}
 
-  \frontmatter%Ç°ĞòÒ³Âëi ii iii iv
-  % Ä¿Â¼
+  \frontmatter%å‰åºé¡µç i ii iii iv
+  % ç›®å½•
   \tableofcontents
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Ç°ÑÔ²¿·Ö
+%% å‰è¨€éƒ¨åˆ†
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
 
 
-%Çë½«ÂÛÎÄÕıÊ½°æ±¾µÄ¡°Ç°ÑÔ²¿·Ö¡±¡ª¡ª¡ª¡ª¡ª¡ª¡°ÖÂĞ»¡±Ö®Ç°  µÄtex´úÂëÈ«²¿¸´ÖÆÓÚ´Ë´¦¡£
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% æ‘˜è¦
+\begin{abstract}
+	TBC
+	
+	\keywords{éšç§ä¿æŠ¤ï¼Œåšå¼ˆè®ºï¼Œéšç§é‡åŒ–ï¼Œéšç§æ¨æµ‹ï¼ŒåŸºäºé£é™©è®¿é—®æ§åˆ¶}
+\end{abstract}
+
+
+\begin{englishabstract}
+	TBC
+	
+	\englishkeywords{Privacy preserving, Game Theory, Privacy quantification, Privacy inference, Risk adaptable based access control}
+\end{englishabstract}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% æ‘˜è¦ç»“æŸ
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% æ­£æ–‡éƒ¨åˆ†
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\mainmatter%æ­£å¼é¡µç 1 2 3
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ç¬¬1ç« 
+
+
+\input{chapter1.tex}%ç»ªè®º
+\input{chapter2.tex}%åŸºç¡€çŸ¥è¯†
+\input{chapter3.tex}%éšç§é‡åŒ–
+\input{chapter4.tex}%éšç§æ¨æµ‹
+\input{chapter5.tex}%é£é™©è®¿é—®æ§åˆ¶
+\input{chapter6.tex}%åŸºäºäºŒäººåšå¼ˆçš„é£é™©è®¿é—®æ§åˆ¶
+\input{chapter7.tex}%åŸºäºæ¼”åŒ–åšå¼ˆçš„é£é™©è®¿é—®æ§åˆ¶
+\input{chapter8.tex}%ç»“è®º
+\input{chapter9.tex}%ç»“è®º
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% é™„ä»¶éƒ¨åˆ†
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\backmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%å‚è€ƒæ–‡çŒ®%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\bibliographystyle{gbt7714-unsrt}
+\bibliography{thesis-references}
 
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ÖÂĞ»%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% è‡´è°¢%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%ÖÂĞ»¼°ÖÂĞ»Ö®ºóµÄ²¿·Ö²»ĞèÒª¸´ÖÆ
+%è‡´è°¢åŠè‡´è°¢ä¹‹åçš„éƒ¨åˆ†ä¸éœ€è¦å¤åˆ¶
 
 
 
