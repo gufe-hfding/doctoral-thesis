@@ -25,9 +25,38 @@
 %\renewcommand{\baselinestretch}{1.5} %行间距，默认为1.3
 \usepackage{setspace}
 \usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{times}
+\usepackage{mathptmx}
+\usepackage{subcaption}
+\usepackage[]{algorithm2e}
+\usepackage{booktabs}
+\usepackage{relsize}
+\usepackage{colortbl}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{pbox}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{balance}
+\usepackage{tablefootnote}
+\usepackage{epstopdf, epsfig}
+\usepackage{url}
+\usepackage{cleveref}[2012/02/15]
+\usepackage{arydshln}
 \usepackage[super]{gbt7714}
 \usepackage{geometry}%设置页边距
 \geometry{left=2.54cm,right=2.54cm,top=3.17cm,bottom=3.17cm}
+
+\theoremstyle{THrm}{
+	\newtheorem{question}{Question}[section]
+	\newtheorem{scheme}{Scheme}
+	\newtheorem{assumption}{假设}[section]
+	\newtheorem{claim}[lemma]{断言}
+	
+}
 
 \setcounter{tocdepth}{2}%设定目录层级（通常取值0-2之间）
 
