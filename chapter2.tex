@@ -1,15 +1,34 @@
 \chapter{基础知识}
 \label{chap:preliminary}
 
-
+\textit{本章介绍本文研究所需的信息论、博弈论及隐私保护的基本概念，包括Shannon信息论及其扩展，策略博弈、扩展博弈等博弈论概念，隐私分类及隐私保护基本模型。本章的内容主要为后文展开具体研究奠定基础。}
 \section{Shannon信息论及其扩展}
+
+\subsection{信息通信模型}
+信息论\cite{shannon1948mathematical,
+	stone2018information}是信息科学的基本工具，信息论对于量化信息的不确定性和信息量有重要的作用。信息通信模型最早由Shannon在其《通信的数学原理》论文中提出，如图\ref{fig:communication-model}所示。
+
+\begin{figure}[htbp]
+	\centering
+	\includegraphics[width = 0.6\linewidth]{./figures/shannon-communicaiton-model.jpg}
+	\caption{信息通信模型\cite{stone2018information}.
+	}
+	\label{fig:communication-model}
+\end{figure}
+
+信息通信模型\cite{stone2018information}由信源消息、编码器、信道、解码器、信宿消息和噪音构成，信源消息（数据）在作为信道输入之前被编码器进行编码；编码后的信源消息在信道中传输，传输过程中会受到噪声影响；解码器从信道中接收到加噪后的信息，解码为信宿消息。
+
+
+
+对于事件集中的某一特定事件$x$，$x$的概率为$p(x)$，则$x$的香农信息为$-\text{log}p(x)$。
+
+因此，风险也是关于不确定性的概念，这与香农信息自然相关。 在这项工作中，我们打算利用信息来估计访问请求和用户的隐私风险。 可以在\cite{wagner2018}中找到有关隐私社区中信息论的更多详细信息。
+
 \subsection{信息熵}
 
 
 
-信息论\cite{shannon1948mathematical,csiszar2004,stone2018}是信息科学的基本工具，熵对于量化信息的不确定性和数量非常有用。在隐私社区中，熵和其他相关概念作为隐私度量引入\cite{wagner2018}。对于事件集中的某一特定事件$x$，$x$的概率为$p(x)$，则$x$的香农信息为$-\text{log}p(x)$。
 
-因此，风险也是关于不确定性的概念，这与香农信息自然相关。 在这项工作中，我们打算利用信息来估计访问请求和用户的隐私风险。 可以在\cite{wagner2018}中找到有关隐私社区中信息论的更多详细信息。
 
 
 
