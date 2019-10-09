@@ -40,13 +40,13 @@
 	\caption{给定父母的不同基因型，SNP的孟德尔遗传概率}\label{fig:Mendelian-law}
 \end{figure}
 
-连锁不平衡(Linkage Disequilibrium，LD)由两个或多个基因座上等位基因的对应关系或非随机关系定义。 研究人员提出了各种方法来描述SNP之间的相关性, 这些方法中的三种是最新的选择，它们分别使用公开的等位基因频率和连锁不平衡，基因型数据集和遗传重组率\cite{samani2015quantifying} 。通过使用高密度单倍型参照数据集、遗传重组率、离散隐马尔可夫链模型和马尔可夫链蒙特卡洛采样策略，提出了IMPUTE2\cite{howie2014impute2}，一种缺失基因型的概率估算方法。 与在文献\cite{humbert2013addressing,humbert2017quantifying}中使用的成对连锁不平衡和在\cite{deznabi2018inference} 中使用的简单(隐藏) 马尔可夫链不同，在本章工作中使用IMPUTE2中的方法作为基因属性隐私分析推测的相关性和采样算法。
+连锁不平衡(Linkage Disequilibrium，LD)由两个或多个基因座上等位基因的对应关系或非随机关系定义。 研究人员提出了各种方法来描述SNP之间的相关性, 这些方法中的三种是最新的选择，它们分别使用公开的等位基因频率和连锁不平衡，基因型数据集和遗传重组率\cite{samani2015quantifying} 。通过使用高密度单倍型参照数据集、遗传重组率、离散隐马尔可夫链模型和马尔可夫链蒙特卡洛采样策略，提出了IMPUTE2\cite{howie2014impute2}，一种缺失基因型的概率估算方法。 与在文献\cite{humbert2013addressing,humbert2017quantifying}中使用的成对连锁不平衡和在文献\cite{deznabi2018inference} 中使用的简单(隐藏) 马尔可夫链不同，在本章工作中使用IMPUTE2中的方法作为基因属性隐私分析推测的相关性和采样算法。
 
 \subsection{置信传播}
 
 置信传播\cite{kschischang2001factor} 是一种用于在图形模型上进行推断的消息传递算法，且在贝叶斯网络和马尔可夫随机域上运行良好。 它在观测到的节点上有条件地评估未观测到的节点的边缘概率。 它在具有近似结果的循环因子图和具有精确结果的无循环因子图上均具有良好的性能。 置信传播在人工智能和信息论中被广泛使用。 在本章中，使用 SumProductLab作为基本开发工具来实现针对所提出的推断攻击的置信传播算法。
 
-\section{敌手模型与框架}
+\section{相互关联的亲属基因序列数据隐私分析敌手模型与框架}
 \subsection{数据模型}
 对于特定的家庭，有$n$个家庭成员 $S=\{s_1,s_2,...,s_n\}$，以及该家庭的亲属结构图 $T=\{S,R\}$ ，其中 $S$ (是家庭成员的集合) 赋予为 $T$ 的顶点, 而 $R$ (是家庭成员关系的集合，若 $s_i$ 是 $s_j$ 的父母，则 $r_{i,j}=1$) 赋予为 $T$ 的边。 假设一个人的SNP集为 $\mathbf{x}=(x_1,x_2,...,x_m)$ 并具有 $m$ 个SNP, 其中 $x_i \in \{0,1,2\}$ (特定的SNP $x_i$ 具有 $"BB"$,$"Bb"$ 和 $"bb"$ 的基因型, 可以分别用0、1和2来赋值), 因此 $s_i$ 的SNP集可以赋予为 $\mathbf{x}_i=(x_{i,1},x_{i,2},...,x_{i,m})$。令矩阵 $\mathbf{X}$ 代表整个家族的所有SNP，则
 
@@ -251,7 +251,7 @@ p(x_{ij})= \sum_{\mathbf{X}_U/\{x_{ij}\}} p(\mathbf{X}_U | \mathbf{X}_K, \mathbf
 
 在这里，我们使用类似于\cite{humbert2013addressing,deznabi2018inference}评估提出的推断框架。 首先，提出了量化基因组隐私的指标，然后描述了我们在工作中使用的数据集。最后，对结果进行了比较。
 
-\subsection{量化隐私指标}
+\subsection{隐私量化指标}
 
 为了量化被攻击者的隐私, 可以使用诸如信息论之类的不同指标来评估隐私分析攻击的能力\cite{marchini2007newa,shokri2011quantifying,serjantov2002towards}。我们从基因组水平和疾病水平以及攻击者的不正确性，不确定性和不确定性递减方面评估推断攻击框架。 前两个指标也用在文献\cite{humbert2013addressing}和文献\cite{deznabi2018inference}中。
 
@@ -290,7 +290,7 @@ I^i_j=& -\sum_{x^i_j=\in \{0,1,2\}}p_{MAF}(x^i_j)log(p_{MAF}(x^i_j))  \nonumber 
 我们为每个SNP计算从公式(14) 到公式(16) 的指标，然后取所有平均值的平均值在未知集XU中的 $\mathbb{X}_{\mathbf{U}}$。
 
 
-\subsection{数据集}
+\subsection{试验数据集}
 
 在我们的工作中，我们使用两种类型的数据和三个数据集。
 
@@ -335,8 +335,8 @@ Manuel Corpas以变体召回格式 (VCF)公布了其家族的DNA数据。该数�
 	\caption{Manuel Corpas家族谱系结构}\label{fig:Manuel-Corpas-Family-Pedigree}
 \end{figure}
 
-\subsection{试验结果}
-本小节中，我们使用信念传播算法考察了所提出的基因序列数据隐私分析算法对两个家族的基因组数据集中的基因属性隐私分析推断结果。
+\subsection{相关关联的基因序列隐私分析试验结果}
+本小节中，我们使用信念传播算法考察所提出的基因序列数据隐私分析算法，分别对两个家族的基因组数据集中的基因属性隐私进行分析推断。
 
 \subsubsection{CEPH/Utah Pedigree 1463}
 
