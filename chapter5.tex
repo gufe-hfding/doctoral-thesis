@@ -80,7 +80,7 @@ HMM可用于表征诸如相似性、解码和学习等基本问题。 目前，H
 
 \subsection{敌手模型}
 
-本节提出的敌手模型主要针对现实世界中涉及基因组数据共享的场景。在这种情况下，被攻击对象共享其SNP序列用于研究、医学测试或寻找亲属。由于隐私保护的需求，被攻击者希望隐藏某些可能与遗传病或私人特征有关的敏感SNP。因此，被攻击对象共享其原始SNP序列的变体~$\hat{X}=(\hat{x}_1,\hat{x}_2, ... , \hat{x}_n)$~， 其中~$\hat{x}_i =\{0,1,2\}$~，并隐藏其中某些SNP。假设隐藏的SNP用$X_H$表示，可观测的SNP用~$X_O$~表示，公开的SNP用~$X=(x_1, x_2, ..., x_n)=X_H \cup X_O$~，其中~$x_i =\{-1,0,1,2\}$~，值~$x_i=-1$~表示$x_i\in X_H$是隐藏的SNP。假设已观测被攻击者公开SNP~$X$~序列数据的敌手想要重构原始SNP序列~$\hat{X}$~。为此，敌手可以通过推断攻击侵入被攻击者的基因组隐私（例如获得其APOE基因状态\cite{nyholt2009jim}。要进行这样的推断攻击，敌手将收集一些公开可用的基因组信息\cite{IGSR2019,howie2014impute2}，例如受害人所属人群的次要等位基因频率（MAF）、LD值、遗传重组率和单倍体基因型参照，如图~\ref{fig:adversary-model} 所示。
+本节提出的敌手模型主要针对现实世界中涉及基因组数据共享的场景。在这种情况下，被攻击对象共享其SNP序列用于研究、医学测试或寻找亲属。由于隐私保护的需求，被攻击者希望隐藏某些可能与遗传病或私人特征有关的敏感SNP。因此，被攻击对象共享其原始SNP序列的变体~$\hat{X}=(\hat{x}_1,\hat{x}_2, ... , \hat{x}_n)$~， 其中~$\hat{x}_i =\{0,1,2\}$~，并隐藏其中某些SNP。假设隐藏的SNP用$X_H$表示，可观测的SNP用~$X_O$~表示，公开的SNP用~$X=(x_1, x_2, ..., x_n)=X_H \cup X_O$~，其中~$x_i =\{-1,0,1,2\}$~，值~$x_i=-1$~表示$x_i\in X_H$是隐藏的SNP。假设已观测被攻击者公开SNP~$X$~序列数据的敌手想要重构原始SNP序列~$\hat{X}$~。为此，敌手可以通过推断攻击侵入被攻击者的基因组隐私（例如获得其APOE基因状态\cite{nyholt2009jim}。要进行这样的推断攻击，敌手将收集一些公开可用的基因组信息\cite{IGSR2019,howie2014impute2}，例如被攻击者所属人群的次要等位基因频率（MAF）、LD值、遗传重组率和单倍体基因型参照，如图~\ref{fig:adversary-model} 所示。
 
 \begin{figure}[htbp]
 	\centering
@@ -255,7 +255,7 @@ H_{V,i}^U  \leftarrow RCNN(H_{V,i}^T, H_R^{T \cup U}),
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width =0.8\linewidth]{./figures/Fig7-genomic-privacy-quantifying-privacyloss.eps}
-	\caption{不同基因隐私分析模型的基因组隐私变化对比（受害人隐私损失角度）}
+	\caption{不同基因隐私分析模型的基因组隐私变化对比（被攻击者隐私损失角度）}
 	\label{fig:privacyloss}
 \end{figure}
 
