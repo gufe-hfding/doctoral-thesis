@@ -12,7 +12,7 @@
 
 实际情况会更糟，最近的新闻报道称，警方通过开源遗传数据库中的家族成员基因组数据，发现并逮捕了金州杀手，该罪犯在1974年至1986年期间在加州造成12人死亡和至少50起强奸案。这一消息引起了人们对基因隐私的极大关注。若有亲属参与了基因研究或在网上分享了他们自己基因，你应该担心自己的隐私吗？是否有可能从某人的亲属基因数据中重构该人的基因组数据？通过这种方式可以重构多少基因信息？通过亲属的基因数据可以泄露该人的多少基因隐私量？
 
-基于最近的研究和真实的新闻报道，本文针对相互关联序列型数据的属性隐私提出了一种敌手模型和概率推断方法。该模型是针对亲属基因组隐私的高精度推断攻击，并利用前文提出的度量方法对隐私和隐私分析推断攻击能力进行了量化。该攻击模型旨在从公开的基因组数据和网站上的亲属基因组信息中推断出个人的基因组属性隐私信息。提出了一个统一的敌手模型和一个基于离散隐马尔可夫模型、高密度参考数据集和GWAS目录的推断攻击框架，并利用因子图和置信传播算法实现了基因属性隐私推断攻击。与Humbert和Deznabi等\cite{deznabi2018inference}的工作相比，我们的表示是：
+基于最近的研究和真实的新闻报道，本文针对相互关联序列型数据的属性隐私提出了一种敌手模型和概率推断方法。该模型是针对亲属基因组隐私的高精度推断攻击，并利用前文提出的度量方法对隐私和隐私分析推断攻击能力进行了量化。该攻击模型旨在从公开的基因组数据和网站上的亲属基因组信息中推断出个人的基因组属性隐私信息。提出了一个统一的敌手模型和一个基于离散隐马尔可夫模型、高密度参考数据集和GWAS目录的推断攻击框架，并利用因子图和置信传播算法实现了基因属性隐私推断攻击。与Humbert和Deznabi等\cite{deznabi2018inference}的工作相比，我们的贡献是：
 
 \begin{enumerate}
 	\item 提出了一种利用9种公开的和观测到的家庭成员基因组数据进行推断攻击的敌手模型，攻击者的目标是推断被攻击者的基因组属性值、遗传疾病信息和遗传特征信息。
@@ -78,7 +78,7 @@ x_1          & x_2 & ... & x_m \\
 此外，一个人的SNP决定了其自己的外在特征和疾病。 设 $\mathbf{t}$ 为可观测到的性状， $\mathbf{d}$ 为与基因组有关的疾病。  性状 $t_i \in \mathbf{t}$ 的表型与子集 $\mathbf{x}t_i \subseteq \mathbf{x}$ 有关, 疾病 $d_i \in \mathbf{d}$ 与子集 $\mathbf{x}d_i \subseteq \mathbf{x}$ 有关。 人类表型本体论项目(Human Phenotype Ontology project)\cite{koehler2014human}和GWAS目录（ GWAS Catalog）\cite{macarthur2017the}中发布了唯一的SNP特征和SNP疾病关联关系数据。
 
 
-在实际情况下，部分数据已知而部分数据未知。SNP序列数据是敏感的隐私数据，人们总是在共享或发布基因组数据之前隐藏一些SNP或在SNP中添加噪音。 由于基因组数据的杂乱无章可能会导致研究和精密医学获得意想不到的结果，因此人们只是隐藏了不想共享的SNP的真实取值。 因此，家族成员的已知SNP赋为 $\mathbf{X}_K$, 未知SNP赋为 $\mathbf{X}_U$,其中 $\mathbf{X}_K \perp\mathbf{X}_U$ 和 $\mathbf{X}_K \cup \mathbf{X}_U = \mathbf{X}$; 家庭成员的已知特征是 $\mathbf{T}_K$, 未知特征是 $\mathbf{T}_U$; 家庭成员的已知基因组疾病是 $\mathbf{D}_K$, 未知基因组疾病是 $\mathbf{D}_U$。同样， $\mathbf{T}_K \perp \mathbf{T}_U$, $\mathbf{D}_K \perp \mathbf{D}_U$, $\mathbf{T}_K \cup \mathbf{T}_U = \mathbf{T}$, 以及 $\mathbf{D}_K \cup \mathbf{D}_U = \mathbf{D}$, 其中 $\mathbf{T}$ 表示家庭成员的可观测基因组特征， $\mathbf{D}$ 表示家庭成员的遗传疾病。 $\mathcal{F}_T(x_i^F,x_i^M,x_i^C)$ 是孟德尔遗传概率函数，其中 $(F,M,C)$ 分别代表父亲，母亲和孩子。$\mathbf{P}=\{p_i: i \in \mathbf{x}\}$ 表示 $\mathbf{x}$ 中SNP的次要等位基因概率(或 MAF) 的集合。 $\mathbb{T}=\{(t_i,rt_{SNPs}(t_i): t_i \in \mathbf{t}\}$ 表示遗传性状与SNP之间的关系，其中 $rt_{SNPs}(t_i)$ 是由该集合的元素确定的 $t_i$ 的SNP集，而 $rt_{SNPs}(t_i) \subseteq \mathbf{x}$。 $\mathbb{D}=\{(d_i,rd_{SNPs}(d_i): d_i \in \mathbf{d}\}$ 代表遗传疾病与SNP之间的关系，其中 $rd_{SNPs}(d_i)$ 是由该集合的元素决定的 $d_i$ 的SNP集，而 $rd_{SNPs}(d_i) \subseteq \mathbf{x}$。 $\mathbb{P}=\{p_{d_i}: d_i \in \mathbf{d}\}$ 代表遗传疾病的患病率。
+在实际中，往往部分数据已知而部分数据未知。SNP序列数据是敏感的隐私数据，人们总是在共享或发布基因组数据之前隐藏一些SNP或在SNP中添加噪音。 加噪的方式会使基因组数据杂乱而导致医学研究和精准医疗获得意想不到的结果，因此人们通常只是隐藏了不想共享的部分SNP序列取值。 因此，家族成员的已知SNP赋为 $\mathbf{X}_K$, 未知SNP赋为 $\mathbf{X}_U$,其中 $\mathbf{X}_K \perp\mathbf{X}_U$ 和 $\mathbf{X}_K \cup \mathbf{X}_U = \mathbf{X}$; 家庭成员的已知特征是 $\mathbf{T}_K$, 未知特征是 $\mathbf{T}_U$; 家庭成员的已知基因组疾病是 $\mathbf{D}_K$, 未知基因组疾病是 $\mathbf{D}_U$。同样， $\mathbf{T}_K \perp \mathbf{T}_U$, $\mathbf{D}_K \perp \mathbf{D}_U$, $\mathbf{T}_K \cup \mathbf{T}_U = \mathbf{T}$, 以及 $\mathbf{D}_K \cup \mathbf{D}_U = \mathbf{D}$, 其中 $\mathbf{T}$ 表示家庭成员的可观测基因组特征， $\mathbf{D}$ 表示家庭成员的遗传疾病。 $\mathcal{F}_T(x_i^F,x_i^M,x_i^C)$ 是孟德尔遗传概率函数，其中 $(F,M,C)$ 分别代表父亲，母亲和孩子。$\mathbf{P}=\{p_i: i \in \mathbf{x}\}$ 表示 $\mathbf{x}$ 中SNP的次要等位基因概率(或 MAF) 的集合。 $\mathbb{T}=\{(t_i,rt_{SNPs}(t_i): t_i \in \mathbf{t}\}$ 表示遗传性状与SNP之间的关系，其中 $rt_{SNPs}(t_i)$ 是由该集合的元素确定的 $t_i$ 的SNP集，而 $rt_{SNPs}(t_i) \subseteq \mathbf{x}$。 $\mathbb{D}=\{(d_i,rd_{SNPs}(d_i): d_i \in \mathbf{d}\}$ 代表遗传疾病与SNP之间的关系，其中 $rd_{SNPs}(d_i)$ 是由该集合的元素决定的 $d_i$ 的SNP集，而 $rd_{SNPs}(d_i) \subseteq \mathbf{x}$。 $\mathbb{P}=\{p_{d_i}: d_i \in \mathbf{d}\}$ 代表遗传疾病的患病率。
 
 \subsection{敌手模型}
 
@@ -159,7 +159,7 @@ p(x_{ij})= \sum_{\mathbf{X}_U/\{x_{ij}\}} p(\mathbf{X}_U | \mathbf{X}_K, \mathbf
 	\item 每个变量节点$x_{i,j}$具有其家族因子节点$f_{i,j}$并已连接。 且，若$k$是家庭中$i$的父母，则$x_{k,j}$（$ k \neq i$）也连接到$x_{i,j}$。 若所观测到的家庭中父亲或母亲都没有$i$，则因子节点$f_{i,j}$的程度为1； 若只有$i$现在的父亲或母亲，则因子节点$f_{i,j}$的度数为2； 若被观测家庭中有双亲$i$，则该度数为3。 如图3中的示例所示，孩子的家庭因子节点的度数为3，因为他的父母都在这里，而父母的家庭因子节点的度数均为1，因为父亲或母亲的父母都不是 出现在被观测家庭中。
 	\item 集合$\mathbf{C}$中的变量节点连接到重组模型相关因子节点$rf_{i,\mathbf{C}}$。 由于我们使用重组模型来训练SNP之间的相关性，因此所有SNP都可以视为与重组能力相关。 在这里，设置$\mathbf{C}$等于$\mathbf{x}$，其中包括一个人的所有SNP。 另一方面，马尔可夫假设可以提高效率。 我们在评估步骤中使用基于马尔可夫的计算。
 	\item 若$\mathbf{T}_{i,\alpha}$中的SNP与特征$t_{\alpha}$（ $t_{\alpha} \in \mathbf{t}$）相关联，则集合$\mathbf{T}_{i,\alpha}$中的家族成员$i$的可变节点连接到特征因子节点$tf_{i,\alpha}$。 $\mathbf{T}_{i,\alpha}$和 $\mathbf{T}_{j,\alpha}$ （$i \neq j$）的SNP具有相同的基因座集合。 这意味着对于不同个体的特定特征，相关SNP的位点是相同的。 $\mathbf{T}_{i,\alpha}$中的SNP数量可能大于1。换句话说，一个给定的性状与一个以上的SNP相关。 另外，一个SNP也可能与一个以上的性状相关。 有时，家族成员已经观测到某些特征，有时没有。
-	\item 若$\mathbf{D}_{i,\beta}$中的SNP与遗传疾病$d_{\beta}$（$d_{\beta} \in \mathbf{d}$）相关，则$\mathbf{D}_{i,\beta}$组中家族成员$i$的可变节点连接到性状因子节点$df_{i,\beta}$。 类似地，可能有不止一种SNP与给定的遗传疾病相关。 一种SNP也可能与一种以上疾病有关。 有时，已经从家族成员身上观测到了某些疾病，而有时则没有。 并值得注意的是，对于特定疾病，即使相关SNP的位点对于不同的个体而言都是相同的，该疾病的当前结果也有所不同，因为该疾病也可能受到其他因素的影响。
+	\item 若$\mathbf{D}_{i,\beta}$中的SNP与遗传疾病$d_{\beta}$（$d_{\beta} \in \mathbf{d}$）相关，则$\mathbf{D}_{i,\beta}$组中家族成员$i$的可变节点连接到性状因子节点$df_{i,\beta}$。 类似地，可能有不止一种SNP与给定的遗传疾病相关。 一种SNP也可能与一种以上疾病有关。有时，已经从家族成员身上观测到了某些疾病，而有时则没有。值得注意的是，对于特定疾病，即使相关SNP的位点对于不同的个体而言都是相同的，该疾病的当前结果也有所不同，因为该疾病也可能受到其他因素的影响。
 	
 \end{itemize}
 
@@ -192,7 +192,7 @@ p(x_{ij})= \sum_{\mathbf{X}_U/\{x_{ij}\}} p(\mathbf{X}_U | \mathbf{X}_K, \mathbf
 为了更好地理解该公式，我们仅以母亲，父亲和孩子以及3个SNP为例选择一棵家谱。如图3所示，为三人组构建了一个因子图，且SNP在因子图中表示。在因子图中，$i=1$，$i=2$和$i=3$分别表示母亲，父亲和孩子，这3个SNP分别表示为$j=1$，$j=2$和$j=3$。在这里，我们描述了表示母亲的第一个SNP的变量节点（$x_{1,1}$），孩子的家庭因素节点（$f_{3,1}$）和重组模型之间的消息交换母亲的相关因子节点（$rf_{1,\mathbf{C}}$），母亲的特征因子节点（$tf_{1,\alpha}$）和母亲的疾病因子节点（$df_{1,\beta}$）。我们假设所有SNP都包含在集合$\mathbf{C}$中，特征$\alpha$与SNP 1和2相关，而疾病$\beta$与SNP 2和3相关。在图\ref{fig:factor-graph}中（c），通过置信传播算法迭代变量节点和因子节点之间的消息，并在每次迭代中更新对$\mathbf{X}_U$中目标SNP值的置信，直到收敛为止。我们分别用$i$，$k$，$z$，$s$和$t$表示变量和因子节点$x_{1,1}$，$f_{3,1}$，$rf_{1,\mathbf{C}}$，$tf_{1,\alpha}$和$df_{1,\beta}$。
 
 
-\emph{来自变量节点的消息。}算法由变量节点启动，生成并发送消息到邻居。 变量节点$i$通过乘以从邻居那里收到的除家族因子节点$k$之外的所有信息，生成消息$\mu_{i \rightarrow k}^v(x_{1,1}^v$。 可以类似地生成到其他邻居的变量节点$i$，然后在$v^{th}$迭代中从变量节点$i$到家庭因子节点$k$的消息是
+\emph{来自变量节点的消息。}算法由变量节点启动，生成并发送消息到邻居。变量节点$i$通过乘以从邻居那里收到的除家族因子节点$k$之外的所有信息，生成消息$\mu_{i \rightarrow k}^v(x_{1,1}^v$。 可以类似地生成到其他邻居的变量节点$i$，然后在$v^{th}$迭代中从变量节点$i$到家庭因子节点$k$的消息是
 
 \begin{equation}\label{eq:variable-message}
 \mu_{i \rightarrow k}^v(x_{1,1}^v)= \frac{1}{Z} \times
@@ -201,7 +201,7 @@ p(x_{ij})= \sum_{\mathbf{X}_U/\{x_{ij}\}} p(\mathbf{X}_U | \mathbf{X}_K, \mathbf
 \varphi_{s \rightarrow i}^{v-1}(x_{1,1}^{v-1})
 \end{equation}
 
-其中$Z$是归一化常数，对每个变量节点的每个邻居重复此计算。若已知$x_{1,1}$的值，则消息$\mu_{i \rightarrow k}^v(x_{1,1}^v =l)$（$l\in \{0,1,2\}$）将为常数1。在这里，我们不使用消息$\lambda_{k \rightarrow i}^{v-1}(x_{1,1}^{v-1})$和\\ $\varphi_{t \rightarrow i}^{v-1}(x_{i,j}^{v-1})$生成$\mu_{i \rightarrow k}^v(x_{1,1}^v)$，因为在示例中它们没有意义。 值得注意的是，若图中包含母亲的父母，则应使用消息$\lambda$生成$\mu_{i \rightarrow k}^v(x_{1,1}^v)$; 若有任何疾病与$x_{1,1}$相关，则还应使用来自那些疾病因子节点的消息$\varphi$。
+其中$Z$是归一化常数，对每个变量节点的每个邻居重复此计算。若已知$x_{1,1}$的值，则消息$\mu_{i \rightarrow k}^v(x_{1,1}^v =l)$（$l\in \{0,1,2\}$）将为常数1。在这里，我们不使用消息$\lambda_{k \rightarrow i}^{v-1}(x_{1,1}^{v-1})$和\\ $\varphi_{t \rightarrow i}^{v-1}(x_{i,j}^{v-1})$生成$\mu_{i \rightarrow k}^v(x_{1,1}^v)$，因为在示例中它们没有意义。值得注意的是，若图中包含母亲的父母，则应使用消息$\lambda$生成$\mu_{i \rightarrow k}^v(x_{1,1}^v)$; 若有任何疾病与$x_{1,1}$相关，则还应使用来自那些疾病因子节点的消息$\varphi$。
 
 \emph{来自家庭因素节点的消息。}从家庭因子节点$k$到$v^{th}$处变量节点$i$的消息，使用置信传播的原理形成迭代
 
@@ -375,7 +375,7 @@ Manuel Corpas以变体召回格式 (VCF)公布了其家族的DNA数据。该数�
 \end{figure}
 
 
-接下来，为了考察特征信息和疾病信息的对被攻击者基因序列属性隐私泄露的影响情况，我们针对提出的推断攻击模型进行了各种附加信息的实验，攻击者对被攻击者的SNP序列取值推断结果的错误率和不确定性递减对比情况如图\ref{fig:P5error2}和图\ref{fig:P5entropy2}所示，可以看出攻击者获得的被观测家庭成员的信息越多，被攻击者向攻击者泄露的基因组隐私就越多。
+接下来，为了考察基因表征信息和疾病信息的对被攻击者基因序列属性隐私泄露的影响情况，我们针对提出的推断攻击模型进行了各种附加信息的实验，攻击者对被攻击者的SNP序列取值推断结果的错误率和不确定性递减对比情况如图\ref{fig:P5error2}和图\ref{fig:P5entropy2}所示，可以看出攻击者获得的被观测家庭成员的信息越多，被攻击者向攻击者泄露的基因组隐私就越多。
 
 \begin{figure}[htbp]
 	\centering

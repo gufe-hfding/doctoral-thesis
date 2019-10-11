@@ -4,7 +4,7 @@
 \textit{}
 
 \textit{本章介绍本文研究所需的信息论、博弈论及隐私保护的基本概念，包括Shannon信息论及其扩展，策略博弈、扩展式博弈等博弈论概念，隐私分类及隐私保护基本模型。本章的内容主要为后文展开具体研究奠定基础。}
-\section{Shannon信息论及其扩展}
+\section{Shannon信息论}
 
 \subsection{信息通信模型}
 信息论\cite{shannon1948mathematical,
@@ -13,7 +13,7 @@
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width = 0.6\linewidth]{./figures/shannon-communicaiton-model.jpg}
-	\caption{信息通信模型\cite{stone2018information}.
+	\caption{信息通信模型\cite{stone2018information}
 	}
 	\label{fig:communication-model}
 \end{figure}
@@ -156,7 +156,6 @@ I(X,Y)=H(X)-H(X/Y)=H(Y)-H(Y/X)
 	u(a_e,a_e) > u(a_i,a_e), \forall i \ne e,\\
 	u(a_e,a_i) > u(a_i,a_i), \forall i \ne e 
 	\end{equation}
-	
 	则称策略$a_e$为演化稳定策略，其中$u(a_e,a_i)$表示当策略$a_e$遇到$a_i$时, $a_e$的收益。
 	
 \end{definition}
