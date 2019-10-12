@@ -37,7 +37,7 @@
 	\centering
 	\includegraphics[width=0.6\linewidth]{./figures/Mendelian-law.jpg}
 	\centering
-	\caption{给定父母的不同基因型，SNP的孟德尔遗传概率}\label{fig:Mendelian-law}
+	\caption{SNP孟德尔遗传定律概率模型}\label{fig:Mendelian-law}
 \end{figure}
 
 连锁不平衡(Linkage Disequilibrium，LD)由两个或多个基因座上等位基因的对应关系或非随机关系定义。 研究人员提出了各种方法来描述SNP之间的相关性, 这些方法中的三种是最新的选择，它们分别使用公开的等位基因频率和连锁不平衡，基因型数据集和遗传重组率~\cite{samani2015quantifying} 。通过使用高密度单倍型参照数据集、遗传重组率、离散隐Markov链模型和Markov链蒙特卡洛采样策略，提出了IMPUTE2~\cite{howie2014impute2}，一种缺失基因型的概率估算方法。 与在文献~\cite{humbert2013addressing,humbert2017quantifying}中使用的成对连锁不平衡和在文献~\cite{deznabi2018inference} 中使用的简单(隐藏) Markov链不同，在本章工作中使用IMPUTE2中的方法作为基因属性隐私分析推测的相关性和采样算法。
@@ -108,7 +108,7 @@ Humbert等~\cite{humbert2013addressing}在CCS'13中提出了亲属基因组隐�
 	\centering
 	\includegraphics[width=0.95\linewidth]{./figures/attack-framework.png}
 	\centering
-	\caption{所提出的亲属基因组属性隐私分析推断框架}\label{fig:attack-framework}
+	\caption{亲属基因组属性隐私分析推断框架}\label{fig:attack-framework}
 \end{figure}
 
 如图~\ref{fig:attack-framework}所示，敌手拥有一些背景知识信息，且观测到有关该家庭的一些基因组信息，然后他意图推断被攻击者的基因组相关属性隐私。 我们将攻击分为三个阶段：a）建立可以通过背景知识增强攻击的高阶相关模型； b）推断有关被攻击者的私人信息，包括敌手尚未收集到的隐私SNP，私人特征和疾病； c）量化推断获取的隐私信息量。
@@ -186,10 +186,10 @@ p(x_{ij})= \sum_{\mathbf{X}_U/\{x_{ij}\}} p(\mathbf{X}_U | \mathbf{X}_K, \mathbf
 	\centering
 	\includegraphics[width=0.95\linewidth]{./figures/factor-graph.png}
 	\centering
-	\caption{具有3个SNP的三个成员家族（母亲，父亲和孩子）的因子图 (a) 三个成员的家族的结构图；(b)因子图中的符号；(c) 因子图和节点之间传递的消息。}\label{fig:factor-graph}
+	\caption{三个成员家族3个SNP的因子图示例}\label{fig:factor-graph}
 \end{figure}
 
-为了更好地理解该公式，我们仅以母亲，父亲和孩子以及3个SNP为例选择一棵家谱。如图3所示，为三人组构建了一个因子图，且SNP在因子图中表示。在因子图中，~$~i=1~$~，~$~i=2~$~和~$~i=3~$~分别表示母亲，父亲和孩子，这3个SNP分别表示为~$~j=1~$~，~$~j=2~$~和~$~j=3~$~。在这里，我们描述了表示母亲的第一个SNP的变量节点（~$~x_{1,1}$~），孩子的家庭因素节点（~$~f_{3,1}$~）和重组模型之间的消息交换母亲的相关因子节点（~$~rf_{1,\mathbf{C}}$~），母亲的特征因子节点（~$~tf_{1,\alpha}$~）和母亲的疾病因子节点（~$~df_{1,\beta}$~）。我们假设所有SNP都包含在集合~$\mathbf{C}$~中，特征~$\alpha~$~与SNP 1和2相关，而疾病~$\beta~$~与SNP 2和3相关。在图~\ref{fig:factor-graph}中（c），通过置信传播算法迭代变量节点和因子节点之间的消息，并在每次迭代中更新对~$\mathbf{X}_U~$~中目标SNP值的置信，直到收敛为止。我们分别用~$~i~$~，~$~k~$~，~$~z~$~，~$~s~$~和~$~t~$~表示变量和因子节点~$~x_{1,1}$~，~$~f_{3,1}$~，~$~rf_{1,\mathbf{C}}$~，~$~tf_{1,\alpha}$~和~$~df_{1,\beta}$~。
+为了更好地理解该公式，我们仅以母亲，父亲和孩子以及3个SNP为例选择一棵家谱。如图3所示，为三人组构建了一个因子图，且SNP在因子图中表示，其中子图 (a) 是三个成员家族的结构图；(b)是因子图中的符号；(c) 是因子图和节点之间传递的消息。在因子图中，~$~i=1~$~，~$~i=2~$~和~$~i=3~$~分别表示母亲，父亲和孩子，这3个SNP分别表示为~$~j=1~$~，~$~j=2~$~和~$~j=3~$~。在这里，我们描述了表示母亲的第一个SNP的变量节点（~$~x_{1,1}$~），孩子的家庭因素节点（~$~f_{3,1}$~）和重组模型之间的消息交换母亲的相关因子节点（~$~rf_{1,\mathbf{C}}$~），母亲的特征因子节点（~$~tf_{1,\alpha}$~）和母亲的疾病因子节点（~$~df_{1,\beta}$~）。我们假设所有SNP都包含在集合~$\mathbf{C}$~中，特征~$\alpha~$~与SNP 1和2相关，而疾病~$\beta~$~与SNP 2和3相关。在图~\ref{fig:factor-graph}中（c），通过置信传播算法迭代变量节点和因子节点之间的消息，并在每次迭代中更新对~$\mathbf{X}_U~$~中目标SNP值的置信，直到收敛为止。我们分别用~$~i~$~，~$~k~$~，~$~z~$~，~$~s~$~和~$~t~$~表示变量和因子节点~$~x_{1,1}$~，~$~f_{3,1}$~，~$~rf_{1,\mathbf{C}}$~，~$~tf_{1,\alpha}$~和~$~df_{1,\beta}$~。
 
 
 \emph{来自变量节点的消息。}算法由变量节点启动，生成并发送消息到邻居。变量节点~$~i~$~通过乘以从邻居那里收到的除家族因子节点~$~k~$~之外的所有信息，生成消息~$\mu_{i \rightarrow k}^v(x_{1,1}^v~$~。 可以类似地生成到其他邻居的变量节点~$~i~$~，然后在~$~v^{th}$~迭代中从变量节点~$~i~$~到家庭因子节点~$~k~$~的消息是
@@ -348,24 +348,24 @@ Manuel Corpas以变体召回格式 (VCF)公布了其家族的DNA数据。该数�
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figures/P5error1.eps}
 	\centering
-	\caption{随机隐藏50\%SNP序列值，先后披露不同家族成员SNP序列数据，攻击者对P5的SNP序列值属性隐私推断错误率下降情况对比}\label{fig:P5error1}
+	\caption{攻击者对P5的SNP序列值属性隐私推断错误率下降情况对比}\label{fig:P5error1}
 \end{figure}
 
 
-我们开始披露观测到的家庭成员中50\%的SNP序列数据，并考察所提出的基因序列属性隐私分析推断攻击的强度。在文献~\cite{humbert2013addressing,humbert2017quantifying}和~\cite{deznabi2018inference}中观测到的家庭成员的SNP序列数据披露顺序是相同的，即从P5的亲属关系最远的一个成员到最亲近的一个成员。 我们分别在图~\ref{fig:P5error1}和图~\ref{fig:P5entropy1}中显示了攻击者对被攻击者的SNP序列取值的错误率和不确定性递减的结果。 图中，MC1(一阶Markov链或成对连锁不平衡) 代表了Humbert等为考虑基因表型信息情况下的先前工作；MC4(4阶Markov链)代表了Deznabi等的工作，其考虑了基因表型信息，应用了简单隐Markov模型。MCMC(用Markov链Monte Carlo改进隐Markov链)代表了本章的工作，应用了特征和疾病信息。本章工作在攻击者的不正确性和不确定性方面都大大提升了基因属性隐私分析推断攻击的强度。攻击者获得的基因组隐私递增情况 如图~\ref{fig:P5privacyloss1}所示，它与图~\ref{fig:P5error1}和图~\ref{fig:P5entropy1}中所示的前两个度量指标一致。随着更多的亲属向敌手披露个人基因序列数据，被攻击者泄露给敌手的个人基因序列隐私也会越多。
+我们开始披露观测到的家庭成员中50\%的SNP序列数据，并考察所提出的基因序列属性隐私分析推断攻击的强度。在文献~\cite{humbert2013addressing,humbert2017quantifying}和~\cite{deznabi2018inference}中观测到的家庭成员的SNP序列数据披露顺序是相同的，即从P5的亲属关系最远的一个成员到最亲近的一个成员。 我们分别在图~\ref{fig:P5error1}和图~\ref{fig:P5entropy1}中显示了当50\%SNP序列值被随机隐藏时，先后披露不同家族成员SNP序列数据，攻击者对被攻击者的SNP序列取值的错误率和不确定性递减的结果。 图中，MC1(一阶Markov链或成对连锁不平衡) 代表了Humbert等为考虑基因表型信息情况下的先前工作；MC4(4阶Markov链)代表了Deznabi等的工作，其考虑了基因表型信息，应用了简单隐Markov模型。MCMC(用Markov链Monte Carlo改进隐Markov链)代表了本章的工作，应用了特征和疾病信息。本章工作在攻击者的不正确性和不确定性方面都大大提升了基因属性隐私分析推断攻击的强度。当50\%SNP序列值被随机隐藏时，先后披露不同家族成员SNP序列数据，攻击者获得的基因组隐私递增情况 如图~\ref{fig:P5privacyloss1}所示，它与图~\ref{fig:P5error1}和图~\ref{fig:P5entropy1}中所示的前两个度量指标一致。随着更多的亲属向敌手披露个人基因序列数据，被攻击者泄露给敌手的个人基因序列隐私也会越多。
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figures/P5entropy1.eps}
 	\centering
-	\caption{随机隐藏50\%SNP序列值，先后披露不同家族成员SNP序列数据，攻击者对P5的SNP序列值属性隐私推断不确定性下降情况对比}\label{fig:P5entropy1}
+	\caption{攻击者对P5的SNP序列值属性隐私推断不确定性下降情况对比}\label{fig:P5entropy1}
 \end{figure}
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figures/P5privacyloss1.eps}
 	\centering
-	\caption{随机隐藏50\%SNP序列值，先后披露不同家族成员SNP序列数据，攻击者对P5的SNP序列值属性隐私推断获取隐私信息量增加情况对比}\label{fig:P5privacyloss1}
+	\caption{攻击者对P5的SNP序列值属性隐私推断获取隐私信息量增加情况对比}\label{fig:P5privacyloss1}
 \end{figure}
 
 
@@ -373,27 +373,27 @@ Manuel Corpas以变体召回格式 (VCF)公布了其家族的DNA数据。该数�
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figures/P5error2.eps}
 	\centering
-	\caption{随机隐藏50\%SNP序列值，先后披露不同家族成员SNP序列数据、相关性状和疾病信息，攻击者对P5的SNP序列值属性隐私推断错误率降低情况对比}\label{fig:P5error2}
+	\caption{攻击者对P5的SNP序列值属性隐私推断错误率降低情况对比(附加附加特征与疾病信息)}\label{fig:P5error2}
 \end{figure}
 
 
-接下来，为了考察基因表征信息和疾病信息的对被攻击者基因序列属性隐私泄露的影响情况，我们针对提出的推断攻击模型进行了各种附加信息的实验，攻击者对被攻击者的SNP序列取值推断结果的错误率和不确定性递减对比情况如图~\ref{fig:P5error2}和图~\ref{fig:P5entropy2}所示，可以看出攻击者获得的被观测家庭成员的信息越多，被攻击者向攻击者泄露的基因组隐私就越多。
+接下来，为了考察基因表征信息和疾病信息的对被攻击者基因序列属性隐私泄露的影响情况，我们针对提出的推断攻击模型进行了各种附加信息的实验。随机隐藏50\%SNP序列值，先后披露不同家族成员SNP序列数据、相关性状和疾病信息，攻击者对被攻击者的SNP序列取值推断结果的错误率和不确定性递减对比情况如图~\ref{fig:P5error2}和图~\ref{fig:P5entropy2}所示，可以看出攻击者获得的被观测家庭成员的信息越多，被攻击者向攻击者泄露的基因组隐私就越多。
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figures/P5entropy2.eps}
 	\centering
-	\caption{随机隐藏50\%SNP序列值，先后披露不同家族成员SNP序列数据、相关性状和疾病信息，攻击者对P5的SNP序列值属性隐私推断不确定性降低情况对比}\label{fig:P5entropy2}
+	\caption{攻击者对P5的SNP序列值属性隐私推断不确定性降低情况对比(附加附加特征与疾病信息)}\label{fig:P5entropy2}
 \end{figure}
 
 
-然后，为了考察隐藏的SNP数量对推断攻击模型隐私分析推断能力的影响，我们对家族成员的SNP数据披露顺序与先前试验保持一致，隐藏不同数量的SNP数据以重新进行试验。 该实验中，随机披露其他家族成员不同数量的SNP数据，观测攻击者对被攻击者基因序列属性值的推断结果。在图~\ref{fig:P5error3}、图~\ref{fig:P5entropy3}和图~\ref{fig:P5privacyloss3}中，结果表明，随着观测到家族成员的SNP增多，推断攻击的推断能力也随之提高，且这三个指标的结果是一致的。
+然后，为了考察隐藏的SNP数量对推断攻击模型隐私分析推断能力的影响，我们对家族成员的SNP数据披露顺序与先前试验保持一致，隐藏不同数量的SNP数据以重新进行试验。 该实验中，当10\%的SNP序列值被随机隐藏时，随机披露其他家族成员不同数量的SNP数据，观测攻击者对被攻击者基因序列属性值的推断结果。在图~\ref{fig:P5error3}、图~\ref{fig:P5entropy3}和图~\ref{fig:P5privacyloss3}中，结果表明，随着观测到家族成员的SNP增多，推断攻击的推断能力也随之提高，且这三个指标的结果是一致的。
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figures/P5error3.eps}
 	\centering
-	\caption{随机隐藏不同百分比的SNP序列值，先后披露不同家族成员SNP序列数据、相关性状和疾病信息，攻击者对P5的SNP序列值属性隐私推断错误率降低情况对比}\label{fig:P5error3}
+	\caption{攻击者对P5的SNP序列值属性隐私推断错误率降低情况对比(随机隐藏10\%SNP序列值)}\label{fig:P5error3}
 \end{figure}
 
 
@@ -401,14 +401,14 @@ Manuel Corpas以变体召回格式 (VCF)公布了其家族的DNA数据。该数�
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figures/P5entropy3.eps}
 	\centering
-	\caption{随机隐藏不同百分比的SNP序列值，先后披露不同家族成员SNP序列数据、相关性状和疾病信息，攻击者对P5的SNP序列值属性隐私推断不确定性降低情况对比}\label{fig:P5entropy3}
+	\caption{攻击者对P5的SNP序列值属性隐私推断不确定性降低情况对比(随机隐藏10\%SNP序列值)}\label{fig:P5entropy3}
 \end{figure}
 
 \begin{figure}[htbp]
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figures/P5privacyloss3.eps}
 	\centering
-	\caption{随机隐藏不同百分比的SNP序列值，先后披露不同家族成员SNP序列数据、相关性状和疾病信息，攻击者对P5的SNP序列值属性隐私推断隐私信息量增加情况对比}\label{fig:P5privacyloss3}
+	\caption{攻击者对P5的SNP序列值属性隐私推断隐私信息量增加情况对比(随机隐藏10\%SNP序列值)}\label{fig:P5privacyloss3}
 \end{figure}
 
 
@@ -420,7 +420,7 @@ Manuel Corpas以变体召回格式 (VCF)公布了其家族的DNA数据。该数�
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figures/Merror1.eps}
 	\centering
-	\caption{随机隐藏50\%SNP序列值，先后披露不同家族成员SNP序列数据、相关性状和疾病信息，攻击者对M的SNP序列值属性隐私推断错误率降低情况对比}\label{fig:Merror1}
+	\caption{攻击者对M的SNP序列值属性隐私推断错误率降低情况对比}\label{fig:Merror1}
 \end{figure}
 
 
@@ -429,7 +429,7 @@ Manuel Corpas以变体召回格式 (VCF)公布了其家族的DNA数据。该数�
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figures/Mentropy1.eps}
 	\centering
-	\caption{随机隐藏50\%SNP序列值，先后披露不同家族成员SNP序列数据、相关性状和疾病信息，攻击者对M的SNP序列值属性隐私推断不确定性降低情况对比}\label{fig:Mentropy}
+	\caption{攻击者对M的SNP序列值属性隐私推断不确定性降低情况对比}\label{fig:Mentropy}
 \end{figure}
 
 
@@ -439,7 +439,7 @@ Manuel Corpas以变体召回格式 (VCF)公布了其家族的DNA数据。该数�
 	\centering
 	\includegraphics[width=0.8\linewidth]{./figures/Mprivacyloss.eps}
 	\centering
-	\caption{随机隐藏50\%SNP序列值，先后披露不同家族成员SNP序列数据、相关性状和疾病信息，攻击者对M的SNP序列值属性隐私推断隐私量增加情况对比}\label{fig:Mprivacyloss}
+	\caption{攻击者对M的SNP序列值属性隐私推断隐私量增加情况对比}\label{fig:Mprivacyloss}
 \end{figure}
 
 \section{对比分析}

@@ -61,7 +61,7 @@
 
 \begin{definition}%[Self Risky Request and Self Normal Request]
 	\label{def_self_risky}
-	令 ~$~sr(u, q_0), sr(u, q_1), sr(u, q_2), ... ,sr(u, q_{n-1})~$~ 为过去 ~$~n~$~ 次请求 ~$~u~$~ 的自风险值, 令 ~$~sr(u,q)~$~ 为 ~$~u~$~ 当前 (第n次) 请求 ~$~q~$~ 次的风险值。 令 ~$\epsilon_s \in (0,1)~$~ 为分位数。若~$~sr(u,q) \geq  (1+\epsilon_s) / n  \sum ^{n-1}_{i=0}\\{sr(u,q_i))}$~，则请求 ~$~q~$~ 是一个\textbf{用户自风险请求}。否则， ~$~q~$~ 是一个 \textbf{用户自我正常请求}。
+	令 ~$~sr(u, q_0), sr(u, q_1), sr(u, q_2), ... ,sr(u, q_{n-1})~$~ 为过去 ~$~n~$~ 次请求 ~$~u~$~ 的自风险值, 令 ~$~sr(u,q)~$~ 为 ~$~u~$~ 当前 (第n次) 请求 ~$~q~$~ 次的风险值。 令 ~$\epsilon_s \in (0,1)~$~ 为分位数。若~$~sr(u,q) \geq  (1+\epsilon_s) / n  \sum ^{n-1}_{i=0}{sr(u,q_i))}$~，则请求 ~$~q~$~ 是一个\textbf{用户自风险请求}。否则， ~$~q~$~ 是一个 \textbf{用户自我正常请求}。
 \end{definition}
 
 \begin{definition}%[Group Risky Request and Group Normal Request]
@@ -70,7 +70,7 @@
 \end{definition}
 
 
-上述定义 ~\ref{def_self_risky}和定义~\ref{def_group_risky} 都基于Markov模型，且可以根据访问控制系统的经验自动确定Markov链的长度。 此外，两个长度都可以随时间变化。通过这两个定义可以有效识别访问控制系统的高风险访问请求。具体详细计算方法，将在第~\ref{sec:proposed model}节中详细讨论。 在一个时间段内，特定组的每个用户的请求数据数据的期望服从某些分布，而该组的所有用户请求的数据数据的期望也服从一定的分布。根据假设 ~\ref{ass_honest_user}, 若 ~$~u~$~ 是一个诚实的用户，则用户 ~$~u~$~ 的访问数据的分布 ~$~D_u~$~ 与同一组中所有用户访问的数据的分布 ~$~D_g~$~ 密切相关。相反，若 ~$~u~$~ 是一个好奇的用户，则 ~$~D_u~$~ 与 ~$~D_g~$~ 无关。 为了有效描述这种关系， 引入 \emph{相关关系函数} ~$\theta~$~ 并将在 第~\ref{sec:proposed model}节中进行讨论。对于用户 ~$~u~$~ 在组 ~$~g~$~ 中通过请求 ~$~q~$~ 访问的数据数据集合 ~$~r~$~，~$\theta_g (r_q,u))~$~ 返回一个 [0,1]的实数，该实数反映 ~$~r_q~$~ 和 ~$~u~$~ 的职责之间的相关程度，~$\theta_g (r_q,u))~$~ 越高, 风险~$~r_q~$~ 对于用户 ~$~u~$~ 的职责而言就越高。
+上述定义 ~\ref{def_self_risky}和定义~\ref{def_group_risky} 都基于Markov模型，且可以根据访问控制系统的经验自动确定Markov链的长度。 此外，两个长度都可以随时间变化。通过这两个定义可以有效识别访问控制系统的高风险访问请求。具体详细计算方法，将在第~\ref{sec:proposed model}节中详细讨论。 在一个时间段内，特定组的每个用户的请求数据数据的期望服从某些分布，而该组的所有用户请求的数据数据的期望也服从一定的分布。根据假设 ~\ref{ass:honest_user}, 若 ~$~u~$~ 是一个诚实的用户，则用户 ~$~u~$~ 的访问数据的分布 ~$~D_u~$~ 与同一组中所有用户访问的数据的分布 ~$~D_g~$~ 密切相关。相反，若 ~$~u~$~ 是一个好奇的用户，则 ~$~D_u~$~ 与 ~$~D_g~$~ 无关。 为了有效描述这种关系， 引入 \emph{相关关系函数} ~$\theta~$~ 并将在 第~\ref{sec:proposed model}节中进行讨论。对于用户 ~$~u~$~ 在组 ~$~g~$~ 中通过请求 ~$~q~$~ 访问的数据数据集合 ~$~r~$~，~$\theta_g (r_q,u))~$~ 返回一个 [0,1]的实数，该实数反映 ~$~r_q~$~ 和 ~$~u~$~ 的职责之间的相关程度，~$\theta_g (r_q,u))~$~ 越高, 风险~$~r_q~$~ 对于用户 ~$~u~$~ 的职责而言就越高。
 
 
 \begin{definition}%[Honest User and Curious User]
@@ -290,7 +290,7 @@ h, & \hbox{if ~$~conut(risk'(u,T_i) > 0) \leq \alpha~$~.} \\
 	设 ~$~T_0,T_1,...,T_{n-1}$~ 为过去的 ~$~n~$~ 个周期，~$~u \in g~$~ 为迁移用户。若存在 ~$~g' \in G/g~$~ 使得 ~$~d(u,g,T_0) = d(u,g,T_1) = ... = d(u,g,T_i) \geq d(u,g,T_{i+1}) \geq ... \geq d(u,g,T_{n-1}) = 0~$~, 则称 ~$~g'~$~ 为当前周期 ~$~u~$~ 的 \textbf{目标用户组} 。 
 \end{definition}
 
-若可以找到 ~$~u~$~ 的目标组 ~$~g'~$~ ，则我们将 ~$~u~$~ 识别为新用户组的成员，并用 ~$~g'~$~ 更改 ~$~u~$~ 的组信息，否则，将采用第 ~\ref{subsec:Incentive mechanism} 节中介绍的激励机制，并不断观察访问行为。
+若可以找到 ~$~u~$~ 的目标组 ~$~g'~$~ ，则我们将 ~$~u~$~ 识别为新用户组的成员，并用 ~$~g'~$~ 更改 ~$~u~$~ 的组信息，否则，将采用后文介绍的激励机制，并不断观察访问行为。
 
 \textbf{(4) 用户激励机制模型}
 
@@ -365,7 +365,7 @@ h, & \hbox{if ~$~conut(risk'(u,T_i) > 0) \leq \alpha~$~.} \\
 	\small
 	\begin{tabular}{p{0.15\linewidth}p{0.14\linewidth}p{0.14\linewidth}p{0.14\linewidth}p{0.14\linewidth}p{0.14\linewidth}p{0.14\linewidth}}
 		\toprule
-		 & Shaikh等~\cite{shaikh2012dynamic} & Wang与Jin~\cite{wang2011quantified}& Khambhammettu等~\cite{khambhammettu2013framework}& Chen等~\cite{Chen2014}& Dantos等~\cite{santos2014dynamic}& 本章模型\\
+		 & Shaikh等~\cite{shaikh2012dynamic} & Wang与Jin~\cite{wang2011quantified}& Khambhammettu等~\cite{khambhammettu2013framework}& Chen等~\cite{chen2013xacml}& Dantos等~\cite{santos2014dynamic}& 本章模型\\
 		\midrule
 		风险自适应 & 是 &否  &否 &否 &否 &是\\
 		支持XACML & 否 &否  &否 &是 &是 &是\\
@@ -378,9 +378,9 @@ h, & \hbox{if ~$~conut(risk'(u,T_i) > 0) \leq \alpha~$~.} \\
 
 基于风险的访问控制研究变得越来越多，其中很多成果是将风险引入到多级安全性保障~\cite{cheng2007fuzzy,ni2010risk} 和角色访问控制中~\cite{chen2011risk,choi2015framework}。 但是，基于云的大规模信息系统中潜在的安全性和隐私要求具备更好适应性风险的访问控制模型，例如文献~\cite{wang2011quantified,shaikh2012dynamic,khambhammettu2013framework} 中所述。
 
-首先，本章提出的方案实施起来非常方便。 该方案通过一些新的增强组件扩展了XACML标准，以支持风险自适应访问控制。Chen和Jason 等~\cite{Chen2013} 讨论了如何将XACML标准扩展到基于风险的访问控制中，文献~\cite{santos2014dynamic} 的新近工作表明XACML描述的基于风险的访问控制在云环境中是可实现的和有效的。相对地，本章提出的风险自适应访问控制模型完全符合XACML标准，而无需引入额外的元素。 因此，本章提出的模型和 Shaikh 等~\cite{shaikh2012dynamic}的模型可在现实场景中实现；不同的是，本章所提的方案是一个完整的访问控制模型，Shaikh 等~\cite{shaikh2012dynamic}仅提出了一个访问控制模型的访问决策机制。
+首先，本章提出的方案实施起来非常方便。 该方案通过一些新的增强组件扩展了XACML标准，以支持风险自适应访问控制。Chen等~\cite{chen2013xacml} 讨论了如何将XACML标准扩展到基于风险的访问控制中，文献~\cite{santos2014dynamic} 的新近工作表明XACML描述的基于风险的访问控制在云环境中是可实现的和有效的。相对地，本章提出的风险自适应访问控制模型完全符合XACML标准，而无需引入额外的元素。 因此，本章提出的模型和 Shaikh 等~\cite{shaikh2012dynamic}的模型可在现实场景中实现；不同的是，本章所提的方案是一个完整的访问控制模型，Shaikh 等~\cite{shaikh2012dynamic}仅提出了一个访问控制模型的访问决策机制。
 
-其次，本章的方法对于现实生活中的场景更为实用。风险评估是风险基础访问控制系统的核心，所有现有工作 ~\cite{wang2011quantified, shaikh2012dynamic, khambhammettu2013framework} 通过使用 "threat(subject, object)-impact(object, action)", "trust-threat", "trust level-risk level" 来量化访问请求或访问行为的风险值。管理员必须使用相同的方法对主题和对象 (有时甚至是目的和动作) 进行分类，而这种方法很难设计或实现。此外，这些工作中的风险评估过程有些主观。本章所提出的风险访问模型中，仅需要对访问客体进行分类，可以通过标记或标签化很容易实现。无需识别特定访问主体的特定角色或工作职责，访问控制系统可以识别特定组中的用户所承担的某些职责与该组中其他用户的职责相似，而无需专门知道 什么是工作职责。实际上，该模型中的风险量化方法更容易计算访问请求和用户的隐私风险值。
+其次，本章的方法对于现实生活中的场景更为实用。风险评估是风险基础访问控制系统的核心，所有现有工作 ~\cite{wang2011quantified, shaikh2012dynamic, khambhammettu2013framework} 通过使用 "Threat(subject, object)-Impact(object, action)", "Trust-threat", "Trust Level-Risk Level" 来量化访问请求或访问行为的风险值。管理员必须使用相同的方法对主题和对象 (有时甚至是目的和动作) 进行分类，而这种方法很难设计或实现。此外，这些工作中的风险评估过程有些主观。本章所提出的风险访问模型中，仅需要对访问客体进行分类，可以通过标记或标签化很容易实现。无需识别特定访问主体的特定角色或工作职责，访问控制系统可以识别特定组中的用户所承担的某些职责与该组中其他用户的职责相似，而无需专门知道 什么是工作职责。实际上，该模型中的风险量化方法更容易计算访问请求和用户的隐私风险值。
 
 第三，本章所提模型中对访问请求和用户的识别更加精确。 几乎现有的工作 (如文献~\cite{wang2011quantified,shaikh2012dynamic}) 会评估用户或请求的风险值，然后根据历史访问行为对请求做出决策并识别用户。 除了Shaiare更精确的要求和用户的风险值外，所有这些工作都没有考虑到短期历史访问行为和长期历史访问行为间的平衡。本章所提出的隐私风险值都是通过类Markov模型计算的，平衡了短期历史访问行为和长期历史访问行为的影响。 然后，通过将当前访问请求与用户自身及其所属组的访问历史进行比较，基于用户自身隐私风险和群组隐私风险值做出决策。 通过将一个用户的访问/请求模式与其所属的组的访问/请求模式进行比较，对用户类别进行识别。 这样，访问控制决策就变得更加合理，用户类型识别也更加精确。
 
