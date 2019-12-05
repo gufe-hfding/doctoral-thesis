@@ -66,7 +66,7 @@ Risk = Likehood \cdot Impact
 
 值得注意的是，可以根据不同用户的历史访问行为，将定义 ~\ref{def:privacy_violation_access}中的隐私阈值设置为不同的值。 特定用户的隐私阈值可以根据其历史访问行为（如使用贝叶斯方法或Markov方法）在不同时期内的变化来设置。
 
-在访问活动过程中，在用户~$\mathbf{U}$~和访问客体~$\mathbf{O}$~之间存在博弈（实际上是由服务提供者~$\mathbf{S}$~而不是访问客体来博弈）。 在博弈中，参与者集~$\mathbf{A}=\{A_1,A_2,...,A_n\}$~由用户~$\mathbf{U}$~和服务提供商~$\mathbf{S}$~组成，每个参与者 ~$a_I$~都有一个策略集~$st_{A_i}$~，其中包含~$a_I$~的所有潜在动作。 对于一次访问过程中的所有参与者，都有一个效用函数~$u_{A_1,A_2,...,A_n}$~。 因此，~$~<\mathbf{A},\{St_{A_i}\},U_{A_1,A_2,...,A_n}>~$~是访问控制博弈模型。 在该模型中，策略和收益值与用户~$\mathbf{U}$~的访问隐私有关。
+在访问活动过程中，在用户~$\mathbf{U}$~和访问客体~$\mathbf{O}$~之间存在博弈（实际上是由服务提供者~$\mathbf{S}$~而不是访问客体来博弈）。 在博弈中，参与者集~$\mathbf{A}=\{A_1,A_2,...,A_n\}$~由用户~$\mathbf{U}$~和服务提供商~$\mathbf{S}$~组成，每个参与者 ~$a_i$~都有一个策略集~$st_{A_i}$~，其中包含~$a_i$~的所有潜在动作。 对于一次访问过程中的所有参与者，都有一个效用函数~$u_{A_1,A_2,...,A_n}$~。 因此，~$~<\mathbf{A},\{St_{A_i}\},U_{A_1,A_2,...,A_n}>~$~是访问控制博弈模型。 在该模型中，策略和收益值与用户~$\mathbf{U}$~的访问隐私有关。
 
 \section{理性RaBAC模型构建}
 \label{sec:framework}
@@ -132,12 +132,12 @@ x_1 &  x_2 & \cdots & x_m
 \end{array}
 \right),
 \end{equation}
-其中~$p(x_j)=frequency(x_j)/\sum_{k=1}^m frequency(x_k)$~，而~$~frequency(x_j)$~表示~$r^g_1, R^g_2, \cdots, R^g_n~$~中~$X_j~$~的访问次数。因此， ~$r^g_i =\{x_1^{R^g_i},x_2^{R^g_i},\cdots, x_t^{R^g_i}\} \subset R^g$~，有
+其中~$p(x_j)=frequency(x_j)/\sum_{k=1}^m frequency(x_k)$~，而~$~frequency(x_j)$~表示~$R^g_1, R^g_2, \cdots, R^g_n~$~中~$X_j~$~的访问次数。因此， ~$R^g_i =\{x_1^{R^g_i},x_2^{R^g_i},\cdots, x_t^{R^g_i}\} \subset R^g$~，有
 \begin{equation}\label{eq:information_Rgi}
 Infor(R^g_i)=-\sum_{j=1}^t log(p(x_j^{R^g_i})).
 \end{equation}
 
-对于当前访问请求~$q_u$~的预期资源集~$r_{q_u}$~，可以将其分为两个子集， ~$r_{q_u}^* = R_{q_u}/R^g$~ 和 ~$r_{q_u}^{**} = R_{q_u} \cap R^g = \{x_1^{R_{q_u}^{**}},x_2^{R_{q_u}^{**}},\cdots, x_r^{R_{q_u}^{**}}\}$~，有
+对于当前访问请求~$q_u$~的预期资源集~$R_{q_u}$~，可以将其分为两个子集， ~$R_{q_u}^* = R_{q_u}/R^g$~ 和 ~$R_{q_u}^{**} = R_{q_u} \cap R^g = \{x_1^{R_{q_u}^{**}},x_2^{R_{q_u}^{**}},\cdots, x_r^{R_{q_u}^{**}}\}$~，有
 
 \begin{equation}\label{eq:information_Rqu}
 \begin{split}
@@ -145,7 +145,7 @@ Infor(R_{q_u})&=Infor(R_{q_u}^{*})  +Infor(R_{q_u}^{**})
 \\&=-\|R_{q_u}^*\|\cdot log(min(P(X)))-\sum_{j=1}^r log(p(x_j^{R_{q_u}^{**}})),
 \end{split}
 \end{equation}
-其中，~$~||R_{q_u}^*||~$~表示~$r_{q_u}^*$~的阶。 在公式~\ref{eq:information_Rqu}中，若~$r_{q_u}^* \neq \emptyset$~，则~$r_{q_u}^*$~的任何元素都不属于~$r^g$~，且用~$r_g$~的最小访问集合代表它们。
+其中，~$~||R_{q_u}^*||~$~表示~$R_{q_u}^*$~的阶。 在公式~\ref{eq:information_Rqu}中，若~$R_{q_u}^* \neq \emptyset$~，则~$R_{q_u}^*$~的任何元素都不属于~$R^g$~，且用~$R_g$~的最小访问集合代表它们。
 
 在公式~\ref{eq:privacy_risk_qu}中，~$r_{q_u} \geq 0$~，且~$r_{q_u}$~越大，~$q_u$~的隐私风险就越高。我们可以在每个周期或每次访问中为用户~$u$~设置阈值~$r_{q_u}^{th}$~。 由定义~\ref{def:privacy_violation_access}知，若~$r_{q_u} > r_{q_u}^{th}$~，则~$q_u$~是违反隐私的访问；否则，~$q_u$~是正常访问，且可以根据~$u$~的历史访问行为在每个周期或每次访问中更新~$r_{q_u}^{th}$~。
 
@@ -203,8 +203,9 @@ r_u^{i-1}(1+\dfrac{\beta}{r_{max}})), & \text{otherwise.}
 表~\ref{tab:payoff}中的效用函数表示如下，且我们分别分析了支付的组成部分。
 
 \begin{itemize}
-	\item ~$U_s^{G,N} >0$~是授权正常正常请求时服务提供商的效用。该效用是服务提供商通过授权常规正常请求而获得的收益，且该收益取决于当前访问请求~$q_u$~和用户的风险值~$r_u$~。有~$U_s^{G,N}= Sbenefit_g^n\times (r_{max}-r_u)$~​​，其中~$sbenefit_g^n~$~是服务提供商授权正常正常请求的基本收益，而~$(r_{max}-r_u)$~​​是因子。用户风险越低，服务提供商将获得更多的利益。
+	\item ~$U_s^{G,N} >0$~是授权正常请求时服务提供商的效用。该效用是服务提供商通过授权常规正常请求而获得的收益，且该收益取决于当前访问请求~$q_u$~和用户的风险值~$r_u$~。有~$U_s^{G,N}= Sbenefit_g^n\times (r_{max}-r_u)$~​​，其中~$sbenefit_g^n~$~是服务提供商授权正常正常请求的基本收益，而~$(r_{max}-r_u)$~​​是因子。用户风险越低，服务提供商将获得更多的利益。
 	\item ~$U_s^{G,V}<0$~是授权隐私侵犯访问请求时服务提供商的效用。此效用是由于授权当前隐私侵犯访问而导致的隐私损失，且受用户风险和访问风险的影响。有~$U_s^{G,V}= Sloss_g^v \times r_u \times r_{q_u}$~。
+	\item ~$U_s^{D,N} < 0$~是拒绝正常访问请求时服务提供商的效用。该效用是拒绝正常访问请求所造成的效用损失，$U_s^{D,N}= Sloss_d^n \times (r_{max}-r_u)$。
 	\item ~$U_s^{D,V} = 0$~是拒绝隐私侵犯访问时服务提供商的效用。
 	\item ~$U_u^{G,N}$~是用户被授权其正常请求时的效用。此效用是正常访问带来的收益，并受用户风险值影响，有~$U_u^{G,N}= Ubenefit_g^n \times(r_{max} - r_u)$~。
 	\item ~$U_u^{G,V} >0$~是用户被授权其隐私侵犯访问请求时的效用。该效用包括几个部分，正常利益和通过授权当前访问请求而带来的额外利益，并受用户和访问请求的当前风险的影响，有~$U_u^{G,V}= Ubenefit_g^n\times(r_{max} - r_u) + Uextra_g^v \times r_u\times r_{q_u}$~

@@ -66,7 +66,7 @@
 %% math packages
 \RequirePackage{amsmath,amsthm,amsfonts,amssymb,bm,extarrows}
 %%%克服pdf复制乱码
-\RequirePackage{ccmap}
+\RequirePackage{cmap}
 %% graphics packages
 \RequirePackage{graphicx}
 

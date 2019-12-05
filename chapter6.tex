@@ -82,7 +82,7 @@ x_1          & x_2 & ... & x_m \\
 
 \subsection{敌手模型}
 
-本节构建类似于Humbert等工作~\cite{humbert2013addressing}(第3.1节)中的敌手模型。 敌手是由其目标(s)， 攻击方法(s) 和背景知识来定义的。本章中，敌手的目的是通过使用 (i) 观测到的一个或多个家庭成员的基因组数据 (即 SNP序列)，  (ii) 观测到的一个或多个家庭成员的基因组相关特征和疾病， (iii) 家族的谱系结构， (iv) 遗传规律，特别是孟德尔遗传定律， (v) 核苷酸的次要等位基因频率 (MAF) 或等位基因频率， (vi) SNP之间的族群LD值， (vii) 族群的SNP， (viii) GWAS目录，以及 (ix) 遗传疾病的发病率等信息，推断被攻击者的SNP，身体特征和疾病。值得注意的是，(i)-(iii) 可以从基因组共享网站 (如openSNP.org)和开放社交网络(如Facebook.com 和 PatientsLikeMe.com) 收集; (iv) 是遗传学的公共信息； (v)-(vii) 是可以从基因组研究网站 (即 internationalgenome.org) 收集的基因组公共信息; (viii) 和 (ix) 可以从GWAS目录项目和政府统计局 (如 CDC)收集。
+本节构建类似于Humbert等工作~\cite{humbert2013addressing}(第3.1节)中的敌手模型。 敌手是由其目标， 攻击方法 和背景知识来定义的。本章中，敌手的目的是通过使用 (i) 观测到的一个或多个家庭成员的基因组数据 (即 SNP序列)，  (ii) 观测到的一个或多个家庭成员的基因组相关特征和疾病， (iii) 家族的谱系结构， (iv) 遗传规律，特别是孟德尔遗传定律， (v) 核苷酸的次要等位基因频率 (MAF) 或等位基因频率， (vi) SNP之间的族群LD值， (vii) 族群的SNP， (viii) GWAS目录，以及 (ix) 遗传疾病的发病率等信息，推断被攻击者的SNP，身体特征和疾病。值得注意的是，(i)-(iii) 可以从基因组共享网站 (如openSNP.org)和开放社交网络(如Facebook.com 和 PatientsLikeMe.com) 收集; (iv) 是遗传学的公共信息； (v)-(vii) 是可以从基因组研究网站 (即 internationalgenome.org) 收集的基因组公共信息; (viii) 和 (ix) 可以从GWAS目录项目和政府统计局 (如 CDC)收集。
 
 敌手意图通过观测家庭成员的各类基因组信息和公开基因信息来推断多个家庭成员的多个SNP，多个特征和多种疾病。 尽管文献~\cite{humbert2013addressing} 中提到了其他类型的基因序列属性隐推断攻击方法，也可以通过此类方法来进行攻击。该基因序列数据属性隐私攻击模型可以表述为类似于文献~\cite{humbert2013addressing,humbert2017quantifying,deznabi2018inference}的统计推断问题。
 
@@ -114,7 +114,8 @@ Humbert等~\cite{humbert2013addressing}最早在CCS'13中提出了亲属基因�
 如图~\ref{fig:attack-framework}所示，敌手拥有一些背景知识信息，且观测到有关该家庭的一些基因组信息，然后他意图推断被攻击者的基因组相关属性隐私。 我们将攻击分为三个阶段：a）建立可以通过背景知识增强攻击的高阶相关性计算模型； b）推断有关被攻击者的私人信息，包括敌手尚未收集到的隐私SNP，私人特征和疾病； c）量化推断获取的隐私信息量。
 
 \subsection{基因属性隐私分析模型}
-提出的基因属性隐私分析推断攻击目的在于推断目标SNP值，特征和疾病信息。给定观测值（~$\mathbf{X}_K$~，~$\mathbf{T}_K$~和~$\mathbf{D}_K$~和家族结构）和背景知识（孟德尔遗传定律函数~$\mathcal{F}_T(x_i^F,x_i^M,x_i^C)$~)，次要等位基因概率~$\mathbf{P}$~，性状与SNP之间的关系~$\mathbb{T}$~，疾病与SNP之间的关系~$\mathbb{D}$~，遗传疾病的患病率~$\mathbb{P}$~，重组模型~$\mathbf{F}$~的公式以及种群的SNP），该推断攻击可公式化为计算未知变量~$\mathbf{X}_U$~，~$\mathbf{T}_U$~和~$\mathbf{D}_U$~的边缘概率分布。
+提出的基因属性隐私分析推断攻击目的在于推断目标SNP值，特征和疾病信息。
+给定观测值（~$\mathbf{X}_K$~，~$\mathbf{T}_K$~和~$\mathbf{D}_K$~和家族结构）和背景知识（孟德尔遗传定律函数~$\mathcal{F}_T(x_i^F,x_i^M,x_i^C)$~)，次要等位基因概率~$\mathbf{P}$~，性状与SNP之间的关系~$\mathbb{T}$~，疾病与SNP之间的关系~$\mathbb{D}$~，遗传疾病的患病率~$\mathbb{P}$~，重组模型~$\mathbf{F}$~的公式以及种群的SNP），该推断攻击可公式化为计算未知变量~$\mathbf{X}_U$~，~$\mathbf{T}_U$~和~$\mathbf{D}_U$~的边缘概率分布。
 因此，利用联合概率分布函数可以获得未知变量的边缘概率分布。
 
 \begin{equation}\label{eq:joint-pro}
@@ -172,7 +173,7 @@ p&(\mathbf{X}_U | \mathbf{X}_K, \mathbf{T}_K, \mathbf{D}_K, T, \mathcal{F}_T(x_i
 &  \times [\prod_{i \in \mathbf{S}}\prod_{\alpha \in \mathbf{t}}tf_{i,\alpha}(\Psi(i,\alpha),\mathbb{T})] \times [\prod_{i \in \mathbf{S}}\prod_{\beta \in \mathbf{d}}df_{i,\beta}(\phi(i,\beta),\mathbb{D},\mathbb{P}))]
 \end{aligned}
 \end{equation}
-其中，~$z$~是标准化常数，~$\Theta(x_{i,j})$~是~$\mathbf{T}$~中~$i$~的父代的SNP ~$j$~值的变量集，~$\Psi(i,\alpha)$~是个体~$i$~与特征~$\alpha$~相关的SNP值的变量集，~$\phi(i,\beta)$~是变量集 ~$i$~个体的SNP值与疾病B相关。
+其中，~$Z$~是标准化常数，~$\Theta(x_{i,j})$~是~$\mathbf{T}$~中~$i$~的父代的SNP ~$j$~值的变量集，~$\Psi(i,\alpha)$~是个体~$i$~与特征~$\alpha$~相关的SNP值的变量集，~$\phi(i,\beta)$~是变量集 ~$i$~个体的SNP值与疾病B相关。
 
 公式~\ref{eq:joint-pro-multi}的因式分解基于置信传播规则，变量和因子节点之间传递的信息可用于构造迭代置信传播算法，以计算全局边缘概率分布。 令~$\mathbf{X}^v=\{x_{i,j}^v: i\in \mathbf{S}, j \in \mathbf{SID}\}$~是表示算法在~$V^{th}$~迭代时变量节点值的变量集合， 我们将消息描述如下，
 

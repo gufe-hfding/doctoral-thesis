@@ -24,14 +24,41 @@
 
 \renewcommand{\baselinestretch}{1.5} %行间距，默认为1.3
 \usepackage{setspace}
-\usepackage{geometry} %设置页边距
 \usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{times}
+\usepackage{mathptmx}
+\usepackage{subcaption}
+\usepackage[]{algorithm2e}
+\usepackage{booktabs}
+\usepackage{relsize}
+\usepackage{colortbl}
+\usepackage{enumerate}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usepackage{pgf}
+\usepackage{pbox}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{balance}
+\usepackage{tablefootnote}
+\usepackage{epstopdf, epsfig}
+\usepackage{url}
+\usepackage{cleveref}[2012/02/15]
+\usepackage{arydshln}
 \usepackage[super]{gbt7714}
+\usepackage{geometry} %设置页边距
 \geometry{left=2.54cm,right=2.54cm,top=3.17cm,bottom=3.17cm}
 
 \setcounter{tocdepth}{2}%设定目录层级（通常取值0-2之间）
 
-
+\theoremstyle{THrm}{
+	\newtheorem{question}{Question}[section]
+	\newtheorem{property}{性质}[section]
+	\newtheorem{assumption}{假设}[section]
+	\newtheorem{claim}[lemma]{断言}
+	
+}
 
 
 \begin{document}
@@ -52,7 +79,7 @@
   \advisor{向淑文、彭长根}
   \xuekezhuanye{应用数学}
   \yanjiufangxiang{密码学与数据安全}
-  \riqi{2019年~9月}
+  \riqi{2019年12月}
   \didian{中国$\cdot$贵州$\cdot$贵阳}
 %  请适当替换上述文字
 
@@ -79,18 +106,8 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 摘要
-\begin{abstract}
-TBC
+\input{abstracts.tex}
 
-\keywords{隐私保护，博弈论，隐私量化，隐私推测，基于风险访问控制}
-\end{abstract}
-
-
-\begin{englishabstract}
-TBC
-
-\englishkeywords{Privacy preserving, Game Theory, Privacy quantification, Privacy inference, Risk adaptable based access control}
-\end{englishabstract}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 摘要结束
 
 
@@ -106,13 +123,13 @@ TBC
 \input{chapter1.tex}%绪论
 \input{chapter2.tex}%基础知识
 \input{chapter3.tex}%隐私量化
-\input{chapter4.tex}%隐私推测
+%\input{chapter4.tex}%隐私推测
 \input{chapter5.tex}%风险访问控制
 \input{chapter6.tex}%基于二人博弈的风险访问控制
 \input{chapter7.tex}%基于演化博弈的风险访问控制
 \input{chapter8.tex}%结论
 \input{chapter9.tex}%结论
-
+\input{chapter10.tex}%结论
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 附件部分
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -121,15 +138,12 @@ TBC
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%参考文献%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\bibliographystyle{gbt7714-unsrt}
 \bibliography{thesis-references}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 摘要
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 致谢%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{thanks.tex}%结论
 
-\begin{thanks}
-
-致谢
-
-\end{thanks}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%攻读学位期间科研和论文情况%%%%%%%%%%%%%%%
 \newpage
@@ -150,16 +164,24 @@ TBC
 \end{resumesection}
 
 \begin{resumelist}{二、发表论文}
+	
+[1] \textbf{Hongfa Ding}, Youliang Tian, Changgen Peng, Youshan Zhang, Shuwen Xiang. Inference attacks on genomic privacy with an improved HMM and an RCNN model for unrelated individuals. Information Sciences, 2020, 512: 207-218. DOI: 10.1016/j.ins.2019.09.036 (SCI二区，CCF B类期刊)
 
-[1] \textbf{Ding Hongfa}, Peng Changgen, Tian Youliang and Xiang Shuwen. A risk adaptive access control model based on Markov for big data in the cloud, International Journal of High Performance Computing and Networking, 2019, 13(4):464-475.(\textbf{EI})
+[2] \textbf{Hongfa Ding}, Changgen Peng, Youliang Tian, Shuwen Xiang. A Game Theoretical Analysis of Risk Adaptive Access Control for Privacy Preserving, in Proc. of 2019 International Conference on Networking and Network Applications (NaNA), 2019, Daegu, Korea. DOI: 10.1109/NaNA.2019.00052 (EI检索会议)
 
-[1] 彭长根,\textbf{丁红发},朱义杰,田有亮,符祖峰.隐私保护的信息熵模型及其度量方法[J].软件学报,2016,27(08):1891-1903.(\textbf{EI, 一级学报，CCF推荐A类中文期刊})
+[3] \textbf{Hongfa Ding}, Changgen Peng, Youliang Tian, Shuwen Xiang. A risk adaptive access control model based on Markov for big data in the cloud, International Journal of High Performance Computing and Networking, 2019, 13(4):464-475.(\textbf{EI检索期刊})
 
-[2] 刘波涛,彭长根,吴睿雪,\textbf{丁红发},谢明明.面向数字型的轻量级保形加密算法研究[J].计算机研究与发展,2019,56(07):1488-1497.(\textbf{EI, 一级学报，CCF推荐A类中文期刊})
+[4] \textbf{Hongfa Ding}, Changgen Peng, Youliang Tian, Shuwen Xiang. A Game Theoretic Approach of Risk Adaptable based Access Control Model for Privacy Preserving, submitted to  Journal of Information and Engineering.(\textbf{
+	SCI检索期刊})
+
+[5] \textbf{丁红发},彭长根,田有亮,向淑文. 基于演化博弈的隐私风险自适应访问控制模型, 通信学报. (\textbf{
+	已录用，一级学报、EI检索期刊})
+
+[6] 彭长根,\textbf{丁红发},朱义杰,田有亮,符祖峰.隐私保护的信息熵模型及其度量方法[J].软件学报,2016,27(08):1891-1903.(\textbf{EI, 一级学报，CCF推荐A类中文期刊})
+
+[7] 刘波涛,彭长根,吴睿雪,\textbf{丁红发},谢明明.面向数字型的轻量级保形加密算法研究[J].计算机研究与发展,2019,56(07):1488-1497.(\textbf{EI, 一级学报，CCF推荐A类中文期刊})
  
-[3]  彭长根,田有亮,刘海,\textbf{丁红发}.密码学与博弈论的交叉研究综述[J].密码学报,2017,4(01):1-15.(\textbf{CCF推荐C类中文期刊})
-
-[4] 谢明明,彭长根,吴睿雪,\textbf{丁红发},刘波涛.结构化数据的隐私与数据效用度量模型[J].计算机应用研究:1-6[2019-08-25].(\textbf{CCF推荐C类中文期刊})
+[8]  彭长根,田有亮,刘海,\textbf{丁红发}.密码学与博弈论的交叉研究综述[J].密码学报,2017,4(01):1-15.(\textbf{CCF推荐C类中文期刊})
 
 \end{resumelist}
 
@@ -177,7 +199,7 @@ TBC
 
 [6]彭长根,刘波涛,吴睿雪,谢明明,\textbf{丁红发},李雪松. 一种基于手机身份的验证码短信透明加密方法[P]. 贵州：CN108599944A,2018-09-28.
 
-[7]刘波涛,彭长根,吴睿雪,李雪松,\textbf{丁红发},谢明明. 加解密一致的SP网络结构轻量级LBT分组密码实现方法[P]. 贵州：CN107707343A,2018-02-16.
+%[7]刘波涛,彭长根,吴睿雪,李雪松,\textbf{丁红发},谢明明. 加解密一致的SP网络结构轻量级LBT分组密码实现方法[P]. 贵州：CN107707343A,2018-02-16.
 
 \end{resumelist}
 
